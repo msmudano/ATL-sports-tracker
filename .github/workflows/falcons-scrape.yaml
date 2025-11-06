@@ -28,7 +28,7 @@ jobs:
 
       - name: Run scraper
         run: |
-          python scraper_falcons_record.py
+          python scraper_falcons.py
 
       - name: Commit & push updated data.json
         run: |
