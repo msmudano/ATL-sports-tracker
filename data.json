@@ -1,4 +1,7 @@
-[
-  {"name": "Alice", "score": 42},
-  {"name": "Bob", "score": 37}
-]
+{
+  "team": "Atlanta Falcons",
+  "wins": 3,
+  "losses": 5,
+  "ties": 0,
+  "record_text": "3 - 5 - 0"
+}
