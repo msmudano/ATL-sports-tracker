@@ -7,10 +7,18 @@
 </head>
 <body>
   <header>
-    <h1>Demo Data</h1>
+    <h1>Atlanta Falcons</h1>
   </header>
 
   <section id="content">
+    <ul>
+      <h2>
+        {{ record.team }}
+      </h2>
+      <p>
+        Current Record: {{ record.wins }} – {{ record.losses }}{% if record.ties %} – {{ record.ties }}{% endif %}
+      </p>
+    </ul>
     <ul>
       {% for item in data %}
         <li>{{ item.name }} — {{ item.score }}</li>

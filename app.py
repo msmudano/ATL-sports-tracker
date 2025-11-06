@@ -18,7 +18,7 @@ def load_data():
 @app.route("/")
 def index():
     data = load_data()
-    return render_template("index.html", data=data)
+    return render_template("index.html", record=data)
 
 @app.route("/api/data")
 def api_data():
