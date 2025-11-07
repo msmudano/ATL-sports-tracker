@@ -1,4 +1,4 @@
-name: Scrape Falcons Record
+name: Scrape Falcons Info
 
 # Run daily at 9am UTC, or adjust as needed
 on:

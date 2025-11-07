@@ -2,29 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>My Flask Demo</title>
+  <title>ATL Sports Tracker</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
   <header>
-    <h1>Atlanta Falcons</h1>
+    <h1>Welcome to the ATL Sports Tracker!</h1>
+    <p><strong>This site web scrapes relevant information for all major Atlanta Sports teams!</strong></p>
   </header>
 
   <section id="content">
     <ul>
-      <h2>
-        {{ record.team }}
-      </h2>
+      <br></br>
+      <h3>
+        {{ falcons_data.team }}
+      </h3>
+      <img src="{{ url_for('static', filename='Atlanta_Falcons_logo.png') }}" 
+      alt="Atlanta Falcons Logo"
+      style="width:100px;height:100px;">
       <p>
-        Current Record: {{ record.wins }} – {{ record.losses }}{% if record.ties %} – {{ record.ties }}{% endif %}
+        Current Record: {{ falcons_data.wins }} – {{ falcons_data.losses }}{% if falcons_data.ties %} – {{ falcons_data.ties }}{% endif %}
       </p>
-    </ul>
-    <ul>
-      {% for item in data %}
-        <li>{{ item.name }} — {{ item.score }}</li>
-      {% else %}
-        <li>No data available</li>
-      {% endfor %}
+      <p>
+        Current Standings: {{ falcons_data.standings_text }}
+      </p>
+
+      <br></br>
+      <h3></h3>
     </ul>
   </section>
 
