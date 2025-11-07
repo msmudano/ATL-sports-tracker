@@ -3,5 +3,13 @@
   "wins": 3,
   "losses": 5,
   "ties": 0,
-  "record_text": "3 - 5 - 0"
+  "record_text": "3 - 5 - 0",
+  "falcons": {
+    "team": "Atlanta Falcons",
+    "wins": 3,
+    "losses": 5,
+    "ties": 0,
+    "record_text": "3 - 5 - 0",
+    "standings_text": "3rd NFC South"
+  }
 }
