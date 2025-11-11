@@ -1,10 +1,9 @@
-name: Scrape Falcons Info
+name: Scrape Atlanta Sports Info
 
-# Run daily at 9am UTC, or adjust as needed
 on:
   schedule:
-    - cron: '0 9 * * *'
-  workflow_dispatch:  # allows manual trigger
+    - cron: '0 9 * * *'  # runs daily at 4am EST
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,7 +16,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # needed to push
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,17 +28,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r ./requirements.txt
 
-      - name: Run scraper
+      # Run Falcons scraper
+      - name: Run Falcons scraper
         run: |
           python scraper_falcons.py
 
+      # Run Hawks scraper
+      - name: Run Hawks scraper
+        run: |
+          python scraper_hawks.py
+
+      # Commit and push if data.json changed
       - name: Commit & push updated data.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet -- data.json; then
             git add data.json
-            git commit -m "Update Falcons record"
+            git commit -m "Update Falcons and Hawks data"
             git push origin HEAD:main
           else
             echo "No changes detected"
