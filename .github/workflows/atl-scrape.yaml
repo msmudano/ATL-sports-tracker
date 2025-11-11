@@ -13,32 +13,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           persist-credentials: true
 
+      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # 3. Install Python dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r ./requirements.txt
+          pip install selenium  # make sure Selenium is installed for Hawks scraper
 
-      # Run Falcons scraper
+      # 4. Install Google Chrome
+      - name: Install Google Chrome
+        run: |
+          sudo apt update
+          sudo apt install -y google-chrome-stable
+
+      # 5. Install Chromedriver
+      - name: Install Chromedriver
+        uses: nanasess/setup-chromedriver@v1
+        with:
+          chrome-version: stable
+
+      # 6. Run Falcons scraper
       - name: Run Falcons scraper
         run: |
           python scraper_falcons.py
 
-      # Run Hawks scraper
+      # 7. Run Hawks scraper
       - name: Run Hawks scraper
         run: |
           python scraper_hawks.py
 
-      # Commit and push if data.json changed
+      # 8. Commit & push updated data.json if changed
       - name: Commit & push updated data.json
         run: |
           git config user.name "github-actions[bot]"
@@ -49,4 +65,3 @@ jobs:
             git push origin HEAD:main
           else
             echo "No changes detected"
-          fi
