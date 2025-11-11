@@ -19,7 +19,8 @@ def load_data():
 def index():
     data = load_data()
     falcons_data = data.get("falcons", {})
-    return render_template("index.html", falcons_data=falcons_data)
+    hawks_data = data.get("hawks", {})
+    return render_template("index.html", falcons_data=falcons_data, hawks_data=hawks_data)
 
 @app.route("/api/data")
 def api_data():

@@ -28,7 +28,18 @@
       </p>
 
       <br>
-      <h3></h3>
+      <h3>
+        {{ hawks_data.team}}
+      </h3>
+      <img src="{{ url_for('static', filename='Atlanta_Hawks_logo.png') }}" 
+      alt="Atlanta Hawks Logo"
+      style="width:100px;height:100px;">
+      <p>
+        Current Record: {{ hawks_data.wins }} – {{ hawks_data.losses }}
+      </p>
+      <p>
+        Current Standings: {{ hawks_data.standings_text }}
+      </p>
     </ul>
   </section>
 
