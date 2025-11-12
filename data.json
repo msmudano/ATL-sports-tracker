@@ -1,14 +1,19 @@
 {
   "falcons": {
+    "team": "Atlanta Falcons",
+    "wins": 3,
+    "losses": 6,
+    "ties": 0,
+    "record_text": "3 - 6 - 0",
+    "standings_text": "3rd NFC South"
+  },
+  "hawks": {
     "team": "Atlanta Hawks",
     "wins": 6,
     "losses": 5,
     "record_text": "6–5 (.545)",
     "standings_text": "Division: 2nd (Southeast)Conference: 9th (Eastern)",
-    "conf_standings": "9t",
-    "division_standings": "2n"
-  },
-  "hawks": {
-    "error": "Scraping failed"
+    "conf_standings": "9th",
+    "division_standings": "2nd"
   }
 }
