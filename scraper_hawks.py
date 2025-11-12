@@ -1,82 +1,97 @@
 import json
+import os
 import time
-import traceback
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# Path to store scraped data
+DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
+TARGET_URL = "https://www.nba.com/stats/team/1610612737/seasons"
+
 def scrape_hawks_data():
-    print("=== Starting Hawks data scrape ===")
-
-    # Set up headless Chrome
-    options = Options()
-    options.add_argument("--headless=new")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-
-    options.binary_location = "/usr/bin/chromium-browser"
-
-    print("Initializing Chrome WebDriver...")
-    driver = webdriver.Chrome(options=options)
-    driver.set_window_size(1920, 1080)
-
-    url = "https://www.nba.com/stats/team/1610612737/seasons"
-    print(f"Navigating to {url} ...")
-    driver.get(url)
-
     try:
-        # Wait for main table to load
+        print("=== Starting Hawks data scrape ===")
+
+        # Set up headless Chrome
+        options = Options()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        print("Initializing Chrome WebDriver...")
+
+        driver = webdriver.Chrome(options=options)
+        print(f"Navigating to {TARGET_URL} ...")
+        driver.get(TARGET_URL)
+
+        # Wait a few seconds for JS to render
         print("Waiting for stats table to appear...")
-        table = WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "table"))
-        )
-        print("Stats table found!")
+        time.sleep(5)
 
-        # Grab headers
-        headers = [th.text.strip() for th in table.find_elements(By.CSS_SELECTOR, "thead th")]
-        print(f"Found headers: {headers}")
+        # Wait for the row containing "2025-26" season to appear
+        try:
+            row_element = WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, "//tr[td[contains(text(),'2025-26')]]")
+                )
+            )
+        except Exception as e:
+            print("!!! ERROR during scraping !!!")
+            raise e
 
-        # Grab rows
-        rows = []
-        for tr in table.find_elements(By.CSS_SELECTOR, "tbody tr"):
-            cells = [td.text.strip() for td in tr.find_elements(By.TAG_NAME, "td")]
-            if cells:
-                rows.append(dict(zip(headers, cells)))
+        # Parse the row's td elements
+        cells = row_element.find_elements(By.TAG_NAME, "td")
+        if not cells or len(cells) < 11:
+            raise ValueError("Could not find expected table cells for 2025-26 row")
 
-        print(f"Collected {len(rows)} rows of data")
+        wins = int(cells[3].text.strip())
+        losses = int(cells[4].text.strip())
+        conf_rank = cells[10].text.strip()
 
+        hawks_data = {
+            "team": "Atlanta Hawks",
+            "wins": wins,
+            "losses": losses,
+            "standings_text": f"{conf_rank} in East"
+        }
+
+        print("Scraped Hawks data:", hawks_data)
         driver.quit()
-        return rows
+        return hawks_data
 
     except Exception as e:
         print("!!! ERROR during scraping !!!")
-        print(traceback.format_exc())
-        driver.quit()
-        return None
-
-
-def save_data_to_json(new_data):
-    print("=== Updating data.json ===")
-    try:
-        with open("data.json", "r") as f:
-            data = json.load(f)
-            print("Loaded existing data.json successfully")
-    except FileNotFoundError:
-        print("data.json not found, creating a new one...")
-        data = {}
-
-    data["hawks"] = new_data if new_data else {"error": "Scraping failed"}
-
-    with open("data.json", "w") as f:
-        json.dump(data, f, indent=2)
-        print("Saved updated data.json")
+        print(e)
+        try:
+            driver.quit()
+        except:
+            pass
+        return {"error": "Scraping failed"}
 
 def main():
     print("=== Running Hawks scraper main ===")
+    data = {}
+
+    # Load existing JSON
+    if os.path.exists(DATA_FILE):
+        try:
+            with open(DATA_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            print("Loaded existing data.json successfully")
+        except Exception as e:
+            print("Failed to load existing data.json:", e)
+            data = {}
+
+    # Scrape Hawks data
     hawks_data = scrape_hawks_data()
-    save_data_to_json(hawks_data)
+    data["hawks"] = hawks_data
+
+    # Save updated JSON
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print("Saved updated data.json")
     print("=== Finished Hawks scraper ===")
 
 if __name__ == "__main__":

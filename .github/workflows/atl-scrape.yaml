@@ -32,21 +32,21 @@ jobs:
           pip install -r ./requirements.txt
           pip install selenium
 
-      # Install Google Chrome
-      - name: Install Google Chrome
+      # Install Chromium and Chromedriver
+      - name: Install Chromium
         run: |
           sudo apt update
           sudo apt install -y chromium-browser chromium-chromedriver
+          # Ensure PATH includes chromium binaries
+          echo "PATH=$PATH:/usr/lib/chromium-browser/" >> $GITHUB_ENV
 
       # Run Falcons scraper
       - name: Run Falcons scraper
-        run: |
-          python scraper_falcons.py
+        run: python scraper_falcons.py
 
       # Run Hawks scraper
       - name: Run Hawks scraper
-        run: |
-          python scraper_hawks.py
+        run: python scraper_hawks.py
 
       # Commit & push updated data.json if changed
       - name: Commit & push updated data.json
