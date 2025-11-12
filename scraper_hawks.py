@@ -23,7 +23,7 @@ def scrape_hawks():
         soup = BeautifulSoup(resp.text, "html.parser")
 
         # get table with record and standings info
-        record_table = soup.find("table", {"class": "table.infobox.vcard"})
+        record_table = soup.find("table", {"class": "infobox vcard"})
         if not record_table:
             print("Error: Could not find the Hawks record or standings on this page.")
         
