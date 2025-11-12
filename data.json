@@ -6,5 +6,8 @@
     "ties": 0,
     "record_text": "3 - 6 - 0",
     "standings_text": "3rd NFC South"
+  },
+  "hawks": {
+    "error": "Scraping failed"
   }
 }
