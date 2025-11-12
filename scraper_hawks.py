@@ -8,10 +8,17 @@ DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 # URL to scrape
 TARGET_URL = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Atlanta_Hawks_season"
 
+# header needed to scrape wikipedia
+headers = {    
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
+}
+
 def scrape_hawks():
     try:
         # Fetch page
-        resp = requests.get(TARGET_URL, timeout=15)
+        resp = requests.get(TARGET_URL, timeout=15, headers=headers)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
