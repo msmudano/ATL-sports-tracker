@@ -30,15 +30,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r ./requirements.txt
-          pip install selenium
-
-      # Install Chromium and Chromedriver
-      - name: Install Chromium
-        run: |
-          sudo apt update
-          sudo apt install -y chromium-browser chromium-chromedriver
-          # Ensure PATH includes chromium binaries
-          echo "PATH=$PATH:/usr/lib/chromium-browser/" >> $GITHUB_ENV
 
       # Run Falcons scraper
       - name: Run Falcons scraper
