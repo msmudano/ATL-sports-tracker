@@ -7,8 +7,9 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to the ATL Sports Tracker!</h1>
+    <h1>Welcome to the 2025-26 ATL Sports Tracker!</h1>
     <p><strong>This site web scrapes relevant information for all major Atlanta Sports teams!</strong></p>
+    <p>Author: Marcus Mudano</p>
   </header>
 
   <section id="content">
@@ -38,7 +39,10 @@
         Current Record: {{ hawks_data.wins }} – {{ hawks_data.losses }}
       </p>
       <p>
-        Current Standings: {{ hawks_data.standings_text }}
+        Current Conference Standings: {{ hawks_data.conf_standings }} in East
+      </p>
+      <p>
+        Current Division Standings: {{ hawks_data.division_standings }} in Southeast
       </p>
     </ul>
   </section>

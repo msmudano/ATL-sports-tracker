@@ -1,101 +1,80 @@
+import requests
+from bs4 import BeautifulSoup
 import json
 import os
-import time
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 # Path to store scraped data
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
-TARGET_URL = "https://www.nba.com/stats/team/1610612737/seasons"
+# URL to scrape
+TARGET_URL = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Atlanta_Hawks_season"
 
-def scrape_hawks_data():
+def scrape_hawks():
     try:
-        print("=== Starting Hawks data scrape ===")
+        # Fetch page
+        resp = requests.get(TARGET_URL, timeout=15)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Set up headless Chrome
-        options = Options()
-        options.add_argument("--headless=new")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        print("Initializing Chrome WebDriver...")
+        # get table with record and standings info
+        record_table = soup.find("table", {"class": ".infobox.vcard"})
+        if not record_table:
+            print("Error: Could not find the Hawks record or standings on this page.")
+        
+        for row in record_table.find_all("tr"):
+            row_header = row.find("th")
+            row_value = row.find("td")
 
-        # Fix to point to chromium 
-        options.binary_location = "/usr/bin/chromium-browser"
+            if row_header and row_value:
+                row_label = row_header.get_text(strip=True)
+                row_text = row_value.get_text(strip=True)
+            
+            if row_label == "Record":
+                record_text = row_text
+                wins = int(record_text[0])
+                losses = int(record_text[2])
 
-        driver = webdriver.Chrome(options=options)
-        print(f"Navigating to {TARGET_URL} ...")
-        driver.get(TARGET_URL)
-
-        # Wait a few seconds for JS to render
-        print("Waiting for stats table to appear...")
-        time.sleep(5)
-
-        # Wait for the row containing "2025-26" season to appear
-        try:
-            row_element = WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located(
-                    (By.XPATH, "//tr[td[contains(text(),'2025-26')]]")
-                )
-            )
-        except Exception as e:
-            print("!!! ERROR during scraping !!!")
-            raise e
-
-        # Parse the row's td elements
-        cells = row_element.find_elements(By.TAG_NAME, "td")
-        if not cells or len(cells) < 11:
-            raise ValueError("Could not find expected table cells for 2025-26 row")
-
-        wins = int(cells[3].text.strip())
-        losses = int(cells[4].text.strip())
-        conf_rank = cells[10].text.strip()
+            if row_label == "Place":
+                standings_text = row_text
+                split_standings = standings_text.split(':')
+                conf_standings = (split_standings[2])[1:3]
+                division_standings = (split_standings[1])[1:3]
 
         hawks_data = {
             "team": "Atlanta Hawks",
             "wins": wins,
             "losses": losses,
-            "standings_text": f"{conf_rank} in East"
+            "record_text": record_text,
+            "standings_text": standings_text,
+            "conf_standings": conf_standings,
+            "division_standings": division_standings
         }
 
-        print("Scraped Hawks data:", hawks_data)
-        driver.quit()
-        return hawks_data
-
-    except Exception as e:
-        print("!!! ERROR during scraping !!!")
-        print(e)
-        try:
-            driver.quit()
-        except:
-            pass
-        return {"error": "Scraping failed"}
-
-def main():
-    print("=== Running Hawks scraper main ===")
-    data = {}
-
-    # Load existing JSON
-    if os.path.exists(DATA_FILE):
-        try:
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            print("Loaded existing data.json successfully")
-        except Exception as e:
-            print("Failed to load existing data.json:", e)
+        # Load existing JSON if available
+        if os.path.exists(DATA_FILE):
+            try:
+                with open(DATA_FILE, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            except json.JSONDecodeError:
+                data = {}
+        else:
             data = {}
 
-    # Scrape Hawks data
-    hawks_data = scrape_hawks_data()
-    data["hawks"] = hawks_data
+        # Update only the Falcons section
+        data["falcons"] = hawks_data
 
-    # Save updated JSON
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    print("Saved updated data.json")
-    print("=== Finished Hawks scraper ===")
+        # Write to data.json
+        with open(DATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+        print("Scraped Hawks data:", hawks_data)
+        return hawks_data
+
+    except requests.RequestException as e:
+        print("Network error:", e)
+        return None
+    except Exception as e:
+        print("Unexpected error:", e)
+        return None
 
 if __name__ == "__main__":
-    main()
+    scrape_hawks()
