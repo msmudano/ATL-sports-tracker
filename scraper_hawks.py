@@ -46,8 +46,8 @@ def scrape_hawks():
             if row_label == "Place":
                 standings_text = row_text
                 split_standings = standings_text.split(':')
-                conf_standings = (split_standings[2])[1:3]
-                division_standings = (split_standings[1])[1:3]
+                conf_standings = (split_standings[2])[1:4]
+                division_standings = (split_standings[1])[1:4]
 
         hawks_data = {
             "team": "Atlanta Hawks",
@@ -70,7 +70,7 @@ def scrape_hawks():
             data = {}
 
         # Update only the Falcons section
-        data["falcons"] = hawks_data
+        data["hawks"] = hawks_data
 
         # Write to data.json
         with open(DATA_FILE, "w", encoding="utf-8") as f:
