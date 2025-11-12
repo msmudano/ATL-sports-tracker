@@ -22,6 +22,9 @@ def scrape_hawks_data():
         options.add_argument("--disable-dev-shm-usage")
         print("Initializing Chrome WebDriver...")
 
+        # Fix to point to chromium 
+        options.binary_location = "/usr/bin/chromium-browser"
+
         driver = webdriver.Chrome(options=options)
         print(f"Navigating to {TARGET_URL} ...")
         driver.get(TARGET_URL)
