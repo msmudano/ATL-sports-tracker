@@ -7,7 +7,7 @@ from datetime import datetime
 # Path to store scraped data
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 # URL to scrape
-TARGET_URL = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Atlanta_Hawks_season"
+TARGET_URL = "https://en.wikipedia.org/wiki/2025_Atlanta_Braves_season"
 
 # header needed to scrape wikipedia
 headers = {    
@@ -16,7 +16,7 @@ headers = {
         "Chrome/120.0.0.0 Safari/537.36"
 }
 
-def scrape_hawks():
+def scrape_braves():
     try:
         # Fetch page
         resp = requests.get(TARGET_URL, timeout=15, headers=headers)
@@ -24,9 +24,9 @@ def scrape_hawks():
         soup = BeautifulSoup(resp.text, "html.parser")
 
         # get table with record and standings info
-        record_table = soup.find("table", {"class": "infobox vcard"})
+        record_table = soup.find("table", {"class": "infobox ib-baseball-team-season vcard"})
         if not record_table:
-            print("Error: Could not find the Hawks record or standings on this page.")
+            print("Error: Could not find the Braves record or standings on this page.")
         
         for row in record_table.find_all("tr"):
             row_header = row.find("th")
@@ -38,35 +38,30 @@ def scrape_hawks():
             
             if not row_header or not row_value:
                 continue
-            
+
             if row_label == "Record":
                 record_text = row_text
                 parts = [int(x.strip()) for x in record_text.split("-")]
                 wins, losses = parts[0], parts[1]
 
-            if row_label == "Place":
+            if row_label == "Divisional place":
                 standings_text = row_text
-                split_standings = standings_text.split(':')
-                conf_standings = (split_standings[2])[1:4]
-                division_standings = (split_standings[1])[1:4]
 
         # set season_ongoing field
         today = datetime.today().date()
-        hawks_end_date_str = "2026-06-30"
-        hawks_end_date = datetime.strptime(hawks_end_date_str, "%Y-%m-%d").date()
-        if (today <= hawks_end_date):
+        braves_end_date_str = "2026-11-01"
+        braves_end_date = datetime.strptime(braves_end_date_str, "%Y-%m-%d").date()
+        if (today <= braves_end_date):
             season_ongoing = "YES"
         else:
             season_ongoing = "NO"
 
-        hawks_data = {
-            "team": "Atlanta Hawks",
+        braves_data = {
+            "team": "Atlanta Braves",
             "wins": wins,
             "losses": losses,
             "record_text": record_text,
             "standings_text": standings_text,
-            "conf_standings": conf_standings,
-            "division_standings": division_standings,
             "season_ongoing": season_ongoing
         }
 
@@ -80,15 +75,15 @@ def scrape_hawks():
         else:
             data = {}
 
-        # Update only the Hawks section
-        data["hawks"] = hawks_data
+        # Update only the Braves section
+        data["braves"] = braves_data
 
         # Write to data.json
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-        print("Scraped Hawks data:", hawks_data)
-        return hawks_data
+        print("Scraped Braves data:", braves_data)
+        return braves_data
 
     except requests.RequestException as e:
         print("Network error:", e)
@@ -98,4 +93,4 @@ def scrape_hawks():
         return None
 
 if __name__ == "__main__":
-    scrape_hawks()
+    scrape_braves()

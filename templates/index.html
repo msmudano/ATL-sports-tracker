@@ -22,7 +22,7 @@
       alt="Atlanta Falcons Logo"
       style="width:100px;height:100px;">
       <p>
-        Season Ongoing: <strong> {{ falcons_data.season_ongoing }}
+        Season Ongoing: <strong> {{ falcons_data.season_ongoing }} </strong>
         <br>
         Current Record: {{ falcons_data.wins }} – {{ falcons_data.losses }}{% if falcons_data.ties %} – {{ falcons_data.ties }}{% endif %}
         <br>
@@ -37,13 +37,28 @@
       alt="Atlanta Hawks Logo"
       style="width:100px;height:100px;">
       <p>
-        Season Ongoing: <strong> {{ hawks_data.season_ongoing }}
+        Season Ongoing: <strong> {{ hawks_data.season_ongoing }} </strong>
         <br>
         Current Record: {{ hawks_data.wins }} – {{ hawks_data.losses }}
         <br>
         Current Conference Standings: {{ hawks_data.conf_standings }} in East
         <br>
         Current Division Standings: {{ hawks_data.division_standings }} in Southeast
+      </p>
+
+      <br>
+      <h3>
+        {{ braves_data.team }}
+      </h3>
+      <img src="{{ url_for('static', filename='Atlanta_Braves_logo.png') }}" 
+      alt="Atlanta Braves Logo"
+      style="width:100px;height:100px;">
+      <p>
+        Season Ongoing: <strong> {{ braves_data.season_ongoing }} </strong>
+        <br>
+        Current Record: {{ braves_data.wins }} – {{ braves_data.losses }}
+        <br>
+        Current Standings: {{ braves_data.standings_text }} in NL East
       </p>
     </ul>
   </section>
