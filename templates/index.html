@@ -22,9 +22,10 @@
       alt="Atlanta Falcons Logo"
       style="width:100px;height:100px;">
       <p>
+        Season Ongoing: <strong> {{ faclons_data.season_ongoing }}
+        <br>
         Current Record: {{ falcons_data.wins }} – {{ falcons_data.losses }}{% if falcons_data.ties %} – {{ falcons_data.ties }}{% endif %}
-      </p>
-      <p>
+        <br>
         Current Standings: {{ falcons_data.standings_text }}
       </p>
 
@@ -36,12 +37,12 @@
       alt="Atlanta Hawks Logo"
       style="width:100px;height:100px;">
       <p>
+        Season Ongoing: <strong> {{ hawks_data.season_ongoing }}
+        <br>
         Current Record: {{ hawks_data.wins }} – {{ hawks_data.losses }}
-      </p>
-      <p>
+        <br>
         Current Conference Standings: {{ hawks_data.conf_standings }} in East
-      </p>
-      <p>
+        <br>
         Current Division Standings: {{ hawks_data.division_standings }} in Southeast
       </p>
     </ul>

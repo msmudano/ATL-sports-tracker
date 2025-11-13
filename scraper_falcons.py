@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
+from datetime import datetime
 
 # Path to store scraped data
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
@@ -36,13 +37,22 @@ def scrape_falcons():
         # convert standings into text
         standings_text = standings_div.get_text(strip=True)
 
+        # set season_ongoing field
+        today = datetime.today().date()
+        falcons_end_date = "02-08-2026"
+        if (today <= falcons_end_date):
+            season_ongoing = "YES"
+        else:
+            season_ongoing = "NO"
+
         falcons_data = {
             "team": "Atlanta Falcons",
             "wins": wins,
             "losses": losses,
             "ties": ties,
             "record_text": record_text,
-            "standings_text": standings_text
+            "standings_text": standings_text,
+            "season_ongoing": season_ongoing
         }
 
         # Load existing JSON if available
