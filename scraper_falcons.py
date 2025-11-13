@@ -39,7 +39,8 @@ def scrape_falcons():
 
         # set season_ongoing field
         today = datetime.today().date()
-        falcons_end_date = "02-08-2026"
+        falcons_end_date_str = "02-08-2026"
+        falcons_end_date = datetime.strptime(falcons_end_date_str, "%Y-%m-%d").date()
         if (today <= falcons_end_date):
             season_ongoing = "YES"
         else:
