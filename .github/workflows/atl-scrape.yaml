@@ -39,6 +39,10 @@ jobs:
       - name: Run Hawks scraper
         run: python scraper_hawks.py
 
+      # Run Braves scraper
+      - name: Run Braves scraper
+        run: python scraper_hawks.py
+
       # Commit & push updated data.json if changed
       - name: Commit & push updated data.json
         run: |
