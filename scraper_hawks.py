@@ -52,7 +52,7 @@ def scrape_hawks():
 
         # set season_ongoing field
         today = datetime.today().date()
-        hawks_end_date_str = "06-30-2026"
+        hawks_end_date_str = "2026-06-30"
         hawks_end_date = datetime.strptime(hawks_end_date_str, "%Y-%m-%d").date()
         if (today <= hawks_end_date):
             season_ongoing = "YES"
