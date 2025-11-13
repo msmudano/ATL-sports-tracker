@@ -17,5 +17,13 @@
     "conf_standings": "5th",
     "division_standings": "1st",
     "season_ongoing": "YES"
+  },
+  "braves": {
+    "team": "Atlanta Braves",
+    "wins": 76,
+    "losses": 86,
+    "record_text": "76–86",
+    "standings_text": "4th",
+    "season_ongoing": "YES"
   }
 }
