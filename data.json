@@ -9,11 +9,11 @@
   },
   "hawks": {
     "team": "Atlanta Hawks",
-    "wins": 6,
+    "wins": 7,
     "losses": 5,
-    "record_text": "6–5 (.545)",
-    "standings_text": "Division: 2nd (Southeast)Conference: 9th (Eastern)",
-    "conf_standings": "9th",
-    "division_standings": "2nd"
+    "record_text": "7–5 (.583)",
+    "standings_text": "Division: 1st (Southeast)Conference: 5th (Eastern)",
+    "conf_standings": "5th",
+    "division_standings": "1st"
   }
 }
