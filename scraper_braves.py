@@ -40,7 +40,7 @@ def scrape_braves():
                 continue
 
             if row_label == "Record":
-                record_text = row_text
+                record_text = row_text.split("(")[0].strip()
                 parts = [int(x.strip()) for x in record_text.split("-")]
                 wins, losses = parts[0], parts[1]
 
