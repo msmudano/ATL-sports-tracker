@@ -2,7 +2,7 @@ name: Scrape Atlanta Sports Info
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # runs daily at 4am EST
+    - cron: '0 9,21 * * *'  # runs daily at 4am EST
   workflow_dispatch:
 
 permissions:
