@@ -49,7 +49,7 @@ def scrape_braves():
 
         # set season_ongoing field
         today = datetime.today().date()
-        braves_end_date_str = "2026-11-01"
+        braves_end_date_str = "2025-11-01"
         braves_end_date = datetime.strptime(braves_end_date_str, "%Y-%m-%d").date()
         if (today <= braves_end_date):
             season_ongoing = "YES"
