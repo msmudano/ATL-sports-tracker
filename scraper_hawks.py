@@ -41,8 +41,10 @@ def scrape_hawks():
             
             if row_label == "Record":
                 record_text = row_text
-                parts = [int(x.strip()) for x in record_text.split("-")]
-                wins, losses = parts[0], parts[1]
+                print(f"RECORD: {record_text}\n")
+                parts = [x.strip() for x in record_text.split("–")]
+                wins = parts[0]
+                losses = parts[1].split(" ")[0]
 
             if row_label == "Place":
                 standings_text = row_text
