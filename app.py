@@ -21,7 +21,11 @@ def index():
     falcons_data = data.get("falcons", {})
     hawks_data = data.get("hawks", {})
     braves_data = data.get("braves", {})
-    return render_template("index.html", falcons_data=falcons_data, hawks_data=hawks_data, braves_data=braves_data)
+    gt_data = data.get("gt", {})
+    return render_template("index.html", falcons_data=falcons_data, 
+                           hawks_data=hawks_data, 
+                           braves_data=braves_data, 
+                           gt_data=gt_data)
 
 @app.route("/api/data")
 def api_data():

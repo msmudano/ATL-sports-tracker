@@ -25,5 +25,15 @@
     "record_text": "76–86",
     "standings_text": "4th",
     "season_ongoing": "NO"
+  },
+  "gt": {
+    "team": "Georgia Tech Yellow Jackets",
+    "wins": 8,
+    "losses": 1,
+    "record_text": "8–1",
+    "ranking": "No. 16",
+    "conf_record": "5–1",
+    "conf_standings": 1,
+    "season_ongoing": "YES"
   }
 }
