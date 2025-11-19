@@ -48,21 +48,6 @@
 
       <br>
       <h3>
-        {{ braves_data.team }}
-      </h3>
-      <img src="{{ url_for('static', filename='Atlanta_Braves_logo.png') }}" 
-      alt="Atlanta Braves Logo"
-      style="width:100px;height:100px;">
-      <p>
-        Season Ongoing: <strong> {{ braves_data.season_ongoing }} </strong>
-        <br>
-        Current Record: {{ braves_data.wins }} – {{ braves_data.losses }}
-        <br>
-        Current Standings: {{ braves_data.standings_text }} in NL East
-      </p>
-
-      <br>
-      <h3>
         {{ gt_data.team }}
       </h3>
       <img src="{{ url_for('static', filename='GeorgiaTech_logo.png') }}" 
@@ -78,6 +63,21 @@
         Current Conference Record: {{ gt_data.conf_record }}
         <br>
         Current Conference Standings: No. {{ gt_data.conf_standings }} in Atlantic Coastal Conference
+      </p>
+
+      <br>
+      <h3>
+        {{ braves_data.team }}
+      </h3>
+      <img src="{{ url_for('static', filename='Atlanta_Braves_logo.png') }}" 
+      alt="Atlanta Braves Logo"
+      style="width:100px;height:100px;">
+      <p>
+        Season Ongoing: <strong> {{ braves_data.season_ongoing }} </strong>
+        <br>
+        Current Record: {{ braves_data.wins }} – {{ braves_data.losses }}
+        <br>
+        Current Standings: {{ braves_data.standings_text }} in NL East
       </p>
     </ul>
   </section>
