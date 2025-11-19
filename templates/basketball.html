@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Basketball</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Basketball Teams in Atlanta</h1>
+  </header>
+
+  <section id="content">
+    <ul>
+      <br>
+      <h3>
+        {{ hawks_data.team}}
+      </h3>
+      <img src="{{ url_for('static', filename='Atlanta_Hawks_logo.png') }}" 
+      alt="Atlanta Hawks Logo"
+      style="width:100px;height:100px;">
+      <p>
+        Season Ongoing: <strong> {{ hawks_data.season_ongoing }} </strong>
+        <br>
+        Current Record: {{ hawks_data.wins }} – {{ hawks_data.losses }}
+        <br>
+        Current Conference Standings: {{ hawks_data.conf_standings }} in East
+        <br>
+        Current Division Standings: {{ hawks_data.division_standings }} in Southeast
+      </p>
+    </ul>
+  </section>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

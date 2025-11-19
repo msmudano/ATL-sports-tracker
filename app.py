@@ -27,6 +27,25 @@ def index():
                            braves_data=braves_data, 
                            gt_data=gt_data)
 
+@app.route("/football")
+def football():
+    data = load_data()
+    falcons_data = data.get("falcons", {})
+    gt_data = data.get("gt", {})
+    return render_template("football.html", falcons_data=falcons_data, gt_data=gt_data)
+
+@app.route("/basketball")
+def basketball():
+    data = load_data()
+    hawks_data = data.get("hawks", {})
+    return render_template("basketball.html", hawks_data=hawks_data)
+
+@app.route("/baseball")
+def baseball():
+    data = load_data()
+    braves_data = data.get("braves", {})
+    return render_template("baseball.html", braves_data=braves_data)
+
 @app.route("/api/data")
 def api_data():
     data = load_data()
