@@ -7,53 +7,91 @@ from datetime import datetime
 # Path to store scraped data
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 # URL to scrape
-TARGET_URL = "https://www.nfl.com/teams/atlanta-falcons/stats"
+TARGET_URL = "https://en.wikipedia.org/wiki/2025_Atlanta_Falcons_season"
+
+# header needed to scrape wikipedia
+headers = {    
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
+}
 
 def scrape_falcons():
     try:
         # Fetch page
-        resp = requests.get(TARGET_URL, timeout=15)
+        resp = requests.get(TARGET_URL, timeout=15, headers=headers)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # team record
-        record_div = soup.select_one(".nfl-c-team-header__stats.nfl-u-hide-empty")
-        if not record_div:
-            print("Error: Could not find the Falcons record on the page.")
-            return None
-        
-        # team standings
-        standings_div = soup.select_one(".nfl-c-team-header__ranking.nfl-u-hide-empty")
-        if not standings_div:
-            print("Error: Could not find the Falcons standings on the page.")
-            return None
+        # get table with record and division standings info
+        record_table = soup.find("table", {"class": "infobox vcard"})
+        if not record_table:
+            print("Error: Could not find the Falcons record or standings on this page")
 
-        # convert record into ints
-        record_text = record_div.get_text(strip=True)
-        parts = [int(x.strip()) for x in record_text.split("-")]
-        wins, losses = parts[0], parts[1]
-        ties = parts[2] if len(parts) > 2 else 0
+        for row in record_table.find_all("tr"):
+            row_header = row.find("th")
+            row_value = row.find("td")
 
-        # convert standings into text
-        standings_text = standings_div.get_text(strip=True)
+            if row_header and row_value:
+                row_label = row_header.get_text(strip=True)
+                row_text = row_value.get_text(strip=True)
+            
+            if not row_header or not row_value:
+                continue
+            
+            if row_label == "Record":
+                record_text = row_text
+                parts = [x.strip() for x in record_text.split("–")]
+                wins = parts[0]
+                losses = parts[1]
 
-        # set season_ongoing field
+            if row_label == "Division place":
+                division_standing = row_text[0:3]
+
+        # get table with conf standing
+        conf_table = soup.find("table", {"class": "wikitable defaultcenter col2left"})
+        for row in conf_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 5):
+                continue
+
+            if cells[1].get_text(strip=True) == "Atlanta Falcons":
+                conf_standing = cells[0].get_text(strip=True)
+
+                if ("[" in conf_standing):
+                    conf_standing = conf_standing[0 : conf_standing.index("[")]
+
+            if cells[0].get_text(strip=True) == "7":
+                next_team_in_wins = cells[3].get_text(strip=True)
+                next_team_in_losses = cells[4].get_text(strip=True)
+                wins_away = ((int(next_team_in_wins) - int(wins)) + (int(losses) - int(next_team_in_losses))) * 0.5
+
+                
+
+        # set season_status field
         today = datetime.today().date()
-        falcons_end_date_str = "2026-02-08"
-        falcons_end_date = datetime.strptime(falcons_end_date_str, "%Y-%m-%d").date()
-        if (today <= falcons_end_date):
-            season_ongoing = "YES"
+        falcons_playoff_str = "2026-01-10"
+        falcons_playoff_date = datetime.strptime(falcons_playoff_str, "%Y-%m-%d").date()
+        falcons_season_str = "2026-02-08"
+        falcons_season_date = datetime.strptime(falcons_season_str, "%Y-%m-%d").date()
+
+        if (today <= falcons_playoff_date):
+            season_status = "Regular Season"
+        elif (today <= falcons_season_date):
+            season_status = "Playoffs"
         else:
-            season_ongoing = "NO"
+            season_status = "Season is Over"
 
         falcons_data = {
             "team": "Atlanta Falcons",
             "wins": wins,
             "losses": losses,
-            "ties": ties,
             "record_text": record_text,
-            "standings_text": standings_text,
-            "season_ongoing": season_ongoing
+            "division_standing": division_standing,
+            "conf_standing": conf_standing,
+            "season_status": season_status,
+            "wins_away": wins_away
         }
 
         # Load existing JSON if available

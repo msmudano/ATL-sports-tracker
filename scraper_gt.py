@@ -75,7 +75,7 @@ def scrape_gt():
             season_ongoing = "NO"
 
         gt_data = {
-            "team": "Georgia Tech Yellow Jackets (Football)",
+            "team": "Georgia Tech Yellow Jackets",
             "wins": wins,
             "losses": losses,
             "record_text": record_text,

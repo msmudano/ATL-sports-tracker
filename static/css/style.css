@@ -2,3 +2,21 @@ body { font-family: Copperplate, Times; margin: 2rem; }
 header h1 { color: #012; }
 ul { list-style: none; padding-left: 0; }
 li { padding: 0.25rem 0; }
+
+.teams-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.team-column {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 400px;
+    background: #fafafa;
+    align-items: center;
+    text-align: center;
+}

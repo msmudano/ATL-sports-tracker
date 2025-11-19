@@ -10,9 +10,8 @@
     <h1>Football Teams in Atlanta</h1>
   </header>
 
-  <section id="content">
-    <ul>
-      <br>
+  <div class="teams-container">
+    <div class="team-column">
       <h3>
         {{ falcons_data.team }}
       </h3>
@@ -20,14 +19,16 @@
       alt="Atlanta Falcons Logo"
       style="width:100px;height:100px;">
       <p>
-        Season Ongoing: <strong> {{ falcons_data.season_ongoing }} </strong>
+        NFL Season Status: <strong> {{ falcons_data.season_status }} </strong>
         <br>
-        Current Record: {{ falcons_data.wins }} – {{ falcons_data.losses }}{% if falcons_data.ties %} – {{ falcons_data.ties }}{% endif %}
         <br>
-        Current Standings: {{ falcons_data.standings_text }}
+        With <strong>{{ falcons_data.wins }} wins</strong> and <strong>{{ falcons_data.losses }} losses</strong> {% if falcons_data.ties %} and <strong>{{ falcons_data.ties }} ties</strong>{% endif %}, 
+        the Falcons are sitting at <strong>{{ falcons_data.division_standing }} place</strong> in the NFC South.
+        This makes them the <strong>number {{ falcons_data.conf_standing }} ranked</strong> team in the NFC, and <strong>{{ falcons_data.wins_away }} games</strong> out of the playoffs.
       </p>
+    </div>
 
-      <br>
+    <div class="team-column">
       <h3>
         {{ gt_data.team }}
       </h3>
@@ -45,8 +46,8 @@
         <br>
         Current Conference Standings: No. {{ gt_data.conf_standings }} in Atlantic Coastal Conference
       </p>
-    </ul>
-  </section>
+    </div>
+  </div>
 
   <script src="/static/js/main.js"></script>
 </body>
