@@ -1,7 +1,95 @@
-body { font-family: Copperplate, Times; margin: 2rem; }
-header h1 { color: #012; }
-ul { list-style: none; padding-left: 0; }
-li { padding: 0.25rem 0; }
+body { 
+    font-family: Copperplate, Times; 
+    background-color: #F4b59e;
+}
+
+header h1 { 
+    color: #012; 
+}
+
+ul { 
+    list-style: none;
+}
+
+.hero {
+    position: relative;
+    height: 300px;
+    background: url('/static/images/stadium_lights.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20,20,20,0);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero h1 {
+    font-size: 5rem;
+    margin: 0;
+    text-shadow: 2px 2px 12px black;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 5px 0;
+    opacity: 0.9;
+    text-shadow: 1px 1px 8px black;
+}
+
+.teams-section {
+    padding: 40px 20px;
+    text-align: center;
+    align-self: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.team-card {
+    background: #111;
+    border: 3px solid #000000;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.25s ease-in-out;
+
+
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+    border-color: #ffffff; /* Hawks neon */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.team-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+}
 
 .teams-container {
     display: flex;
@@ -19,4 +107,11 @@ li { padding: 0.25rem 0; }
     background: #fafafa;
     align-items: center;
     text-align: center;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }

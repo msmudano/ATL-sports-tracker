@@ -7,27 +7,10 @@
 </head>
 <body>
   <header>
-    <h1>Football Teams in Atlanta</h1>
+    <h1>Georgia Tech Yellow Jackets Football</h1>
   </header>
 
   <div class="teams-container">
-    <div class="team-column">
-      <h3>
-        {{ falcons_data.team }}
-      </h3>
-      <img src="{{ url_for('static', filename='Atlanta_Falcons_logo.png') }}" 
-      alt="Atlanta Falcons Logo"
-      style="width:100px;height:100px;">
-      <p>
-        NFL Season Status: <strong> {{ falcons_data.season_status }} </strong>
-        <br>
-        <br>
-        With <strong>{{ falcons_data.wins }} wins</strong> and <strong>{{ falcons_data.losses }} losses</strong> {% if falcons_data.ties %} and <strong>{{ falcons_data.ties }} ties</strong>{% endif %}, 
-        the Falcons are sitting at <strong>{{ falcons_data.division_standing }} place</strong> in the NFC South.
-        This makes them the <strong>number {{ falcons_data.conf_standing }} ranked</strong> team in the NFC, and <strong>{{ falcons_data.wins_away }} games</strong> out of the playoffs.
-      </p>
-    </div>
-
     <div class="team-column">
       <h3>
         {{ gt_data.team }}

@@ -5,18 +5,46 @@
   <title>ATL Sports Tracker</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
-  <header>
-    <h1>Welcome to the 2025-26 ATL Sports Tracker!</h1>
-    <p><strong>This site web scrapes relevant information for all major Atlanta Sports teams!</strong></p>
-    <p>Author: Marcus Mudano</p>
+
+  <header class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+          <h1>ATL Sports Tracker</h1>
+          <p>Your home for real-time, web-scraped Atlanta Sports Content.</p>
+          <br>
+      </div>
   </header>
 
-  <ul>
-    <li><a href="/football">Football</a></li>
-    <li><a href="/baseball">Baseball</a></li>
-    <li><a href="/basketball">Basketball</a></li>
-  </ul>
-  <script src="/static/js/main.js"></script>
+  <main class="teams-section">
+    <h2 class="section-title">Choose your Team</h2>
+
+    <div class="team-grid">
+      <a href="/falcons" class="team-card">
+        <img src="{{ url_for('static', filename='Atlanta_Falcons_logo.png') }}" alt="Atlanta Falcons Logo">
+      </a>
+
+      <a href="/gt" class="team-card">
+        <img src="{{ url_for('static', filename='GeorgiaTech_logo.png') }}" alt="GT Logo">
+      </a>
+
+
+    </div>
+        <div class="team-grid">
+      <a href="/hawks" class="team-card">
+        <img src="{{ url_for('static', filename='Atlanta_Hawks_logo.png') }}" alt="Atlanta Hawks Logo">
+      </a>
+
+      <a href="/braves" class="team-card">
+        <img src="{{ url_for('static', filename='Atlanta_Braves_logo.png') }}" alt="Atlanta Braves Logo">
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+      <p>© 2025 ATL Sports Tracker — All data webscraped live from official sources.</p>
+      <p class="author">Created by Marcus Mudano</p>
+  </footer>
 </body>
 </html>
