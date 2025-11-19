@@ -13,18 +13,40 @@
   <div class="teams-container">
     <div class="team-column-falcons">
       <img src="{{ url_for('static', filename='falcons_gif.gif') }}" alt="Falcons GIF">
-
     </div>
+
     <div class="team-column-falcons">
       <p>
+        <u><strong>2025-26 SEASON</strong></u>
+        <br>
         NFL Season Status: <strong> {{ falcons_data.season_status }} </strong>
         <br>
         <br>
         With <strong>{{ falcons_data.wins }} wins</strong> and <strong>{{ falcons_data.losses }} losses</strong>{% if falcons_data.ties %} and <strong>{{ falcons_data.ties }} ties</strong>{% endif %}, 
         the Falcons are sitting at <strong>{{ falcons_data.division_standing }} place</strong> in the NFC South.
         This makes them the <strong>number {{ falcons_data.conf_standing }} ranked</strong> team in the NFC, and <strong>{{ falcons_data.wins_away }} games</strong> out of the playoffs.
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <u>Season Stats</u>
+        <br>
+        Offensively, the Falcons are scoring <strong>{{ falcons_data.ppg }} points</strong> per game, which is <strong>{{ falcons_data.ppg_rank }}</strong> in the league.
+        They average <strong>{{ falcons_data.papg }} passing yards</strong> per game, which is <strong>{{ falcons_data.papg_rank }}</strong> in the league, and
+        they average <strong>{{ falcons_data.rpg }} rushing yards</strong> per game, which is <strong>{{ falcons_data.rpg_rank }}</strong> in the league.
+        <br>
+        <br>
+        <br>
+        Defensively, the Falcons are giving up <strong>{{ falcons_data.opp_ppg }} points</strong> per game, which is <strong>{{ falcons_data.opp_ppg_rank }}</strong> in the league.
+        Their opponents average <strong>{{ falcons_data.opp_papg }} passing yards</strong> per game, which is <strong>{{ falcons_data.opp_papg_rank }}</strong> in the league, and
+        their opponents average <strong>{{ falcons_data.opp_rpg }} rushing yards</strong> per game, which is <strong>{{ falcons_data.opp_rpg_rank }}</strong> in the league.
       </p>
     </div>
+  </div>
+
+  <div class="teams-container">
+    <a href="/" class="home-button">Home Page</a>
   </div>
 
   <script src="/static/js/main.js"></script>

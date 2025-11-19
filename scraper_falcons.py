@@ -29,6 +29,7 @@ def scrape_falcons():
         if not record_table:
             print("Error: Could not find the Falcons record or standings on this page")
 
+        # get record, wins, losses, division standing
         for row in record_table.find_all("tr"):
             row_header = row.find("th")
             row_value = row.find("td")
@@ -51,6 +52,8 @@ def scrape_falcons():
 
         # get table with conf standing
         conf_table = soup.find("table", {"class": "wikitable defaultcenter col2left"})
+
+        # get conf standing, wins away from playoffs
         for row in conf_table.find_all("tr"):
             cells = row.find_all(["td"])
 
@@ -69,14 +72,60 @@ def scrape_falcons():
                 wins_away = ((int(next_team_in_wins) - int(wins)) + (int(losses) - int(next_team_in_losses))) * 0.5
 
         # Fetch page for team stats
-        # resp = requests.get(TARGET_URL_2, timeout=15, headers=headers)
-        # resp.raise_for_status()
-        # soup = BeautifulSoup(resp.text, "html.parser")
+        resp = requests.get(TARGET_URL_2, timeout=15, headers=headers)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
 
-        # get table with team stats
-        # stats_table = soup.find("table", {"class"}: "")
+        # get tables with team stats
+        stats_tables = soup.find_all("table", {"class": "tr-table scrollable"})
+        overall_stats_table = stats_tables[0]
+        rushing_stats_table = stats_tables[1]
+        passing_stats_table = stats_tables[2]
 
-                
+        # get points/game, opponent points/game
+        for row in overall_stats_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 4):
+                continue
+
+            if cells[0].get_text(strip=True) == "Points/Game":
+                ppg = cells[1].get_text(strip=True).split("(")[0]
+                ppg_rank = cells[1].get_text(strip=True).split("(")[1][:-1]
+
+            if cells[2].get_text(strip=True) == "Opp Points/Game":
+                opp_ppg = cells[3].get_text(strip=True).split("(")[0]
+                opp_ppg_rank = cells[3].get_text(strip=True).split("(")[1][:-1]
+
+        # get rush yds/game, oppoenent rush yds/game
+        for row in rushing_stats_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 4):
+                continue
+
+            if cells[0].get_text(strip=True) == "Rush Yards/Game":
+                rpg = cells[1].get_text(strip=True).split("(")[0]
+                rpg_rank = cells[1].get_text(strip=True).split("(")[1][:-1]
+
+            if cells[2].get_text(strip=True) == "Opp Rush Yards/Game":
+                opp_rpg = cells[3].get_text(strip=True).split("(")[0]
+                opp_rpg_rank = cells[3].get_text(strip=True).split("(")[1][:-1]
+
+        # get pass yds/game, opponent pass yds/game
+        for row in passing_stats_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 4):
+                continue
+
+            if cells[0].get_text(strip=True) == "Pass Yards/Game":
+                papg = cells[1].get_text(strip=True).split("(")[0]
+                papg_rank = cells[1].get_text(strip=True).split("(")[1][:-1]
+
+            if cells[2].get_text(strip=True) == "Opp Pass Yards/Game":
+                opp_papg = cells[3].get_text(strip=True).split("(")[0]
+                opp_papg_rank = cells[3].get_text(strip=True).split("(")[1][:-1]
 
         # set season_status field
         today = datetime.today().date()
@@ -100,7 +149,19 @@ def scrape_falcons():
             "division_standing": division_standing,
             "conf_standing": conf_standing,
             "season_status": season_status,
-            "wins_away": wins_away
+            "wins_away": wins_away,
+            "ppg": ppg,
+            "opp_ppg": opp_ppg,
+            "ppg_rank": ppg_rank,
+            "opp_ppg_rank": opp_ppg_rank,
+            "rpg": rpg,
+            "opp_rpg": opp_rpg,
+            "rpg_rank": rpg_rank,
+            "opp_rpg_rank": opp_rpg_rank,
+            "papg": papg,
+            "opp_papg": opp_papg,
+            "papg_rank": papg_rank,
+            "opp_papg_rank": opp_papg_rank
         }
 
         # Load existing JSON if available

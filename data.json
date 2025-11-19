@@ -7,7 +7,19 @@
     "division_standing": "3rd",
     "conf_standing": "13",
     "season_status": "Regular Season",
-    "wins_away": 3.5
+    "wins_away": 3.5,
+    "ppg": "19.5",
+    "opp_ppg": "23.9",
+    "ppg_rank": "#27",
+    "opp_ppg_rank": "#19",
+    "rpg": "119.9",
+    "opp_rpg": "138.5",
+    "rpg_rank": "#13",
+    "opp_rpg_rank": "#28",
+    "papg": "212.6",
+    "opp_papg": "188.0",
+    "papg_rank": "#18",
+    "opp_papg_rank": "#6"
   },
   "hawks": {
     "team": "Atlanta Hawks",
