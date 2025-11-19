@@ -5,24 +5,22 @@
   <title>Football</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
-  <header>
-    <h1>Atlanta Falcons</h1>
-  </header>
+<body class="falcons-body">
+  <div class="team-header">
+    <p>Atlanta Falcons</p>
+  </div>
 
   <div class="teams-container">
-    <div class="team-column">
-      <h3>
-        {{ falcons_data.team }}
-      </h3>
-      <img src="{{ url_for('static', filename='Atlanta_Falcons_logo.png') }}" 
-      alt="Atlanta Falcons Logo"
-      style="width:100px;height:100px;">
+    <div class="team-column-falcons">
+      <img src="{{ url_for('static', filename='falcons_gif.gif') }}" alt="Falcons GIF">
+
+    </div>
+    <div class="team-column-falcons">
       <p>
         NFL Season Status: <strong> {{ falcons_data.season_status }} </strong>
         <br>
         <br>
-        With <strong>{{ falcons_data.wins }} wins</strong> and <strong>{{ falcons_data.losses }} losses</strong> {% if falcons_data.ties %} and <strong>{{ falcons_data.ties }} ties</strong>{% endif %}, 
+        With <strong>{{ falcons_data.wins }} wins</strong> and <strong>{{ falcons_data.losses }} losses</strong>{% if falcons_data.ties %} and <strong>{{ falcons_data.ties }} ties</strong>{% endif %}, 
         the Falcons are sitting at <strong>{{ falcons_data.division_standing }} place</strong> in the NFC South.
         This makes them the <strong>number {{ falcons_data.conf_standing }} ranked</strong> team in the NFC, and <strong>{{ falcons_data.wins_away }} games</strong> out of the playoffs.
       </p>

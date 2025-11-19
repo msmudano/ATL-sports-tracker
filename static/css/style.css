@@ -3,6 +3,11 @@ body {
     background-color: #F4b59e;
 }
 
+.falcons-body {
+    font-family: Copperplate, Times; 
+    background-color: #a71930;
+}
+
 header h1 { 
     color: #012; 
 }
@@ -13,7 +18,7 @@ ul {
 
 .hero {
     position: relative;
-    height: 300px;
+    height: 200px;
     background: url('/static/images/stadium_lights.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
@@ -91,6 +96,12 @@ ul {
     object-fit: contain;
 }
 
+.team-header {
+    font-size: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
 .teams-container {
     display: flex;
     gap: 20px;
@@ -98,14 +109,14 @@ ul {
     justify-content: space-around;
 }
 
-.team-column {
+.team-column-falcons {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ddd;
+    border: 5px solid #000000;
     padding: 20px;
     width: 400px;
-    background: #fafafa;
-    align-items: center;
+    background: #a5acaf;
+    align-items: right;
     text-align: center;
 }
 

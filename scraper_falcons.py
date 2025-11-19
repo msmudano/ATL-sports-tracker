@@ -6,8 +6,9 @@ from datetime import datetime
 
 # Path to store scraped data
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
-# URL to scrape
-TARGET_URL = "https://en.wikipedia.org/wiki/2025_Atlanta_Falcons_season"
+# URLs to scrape
+TARGET_URL_1 = "https://en.wikipedia.org/wiki/2025_Atlanta_Falcons_season"
+TARGET_URL_2 = "https://www.teamrankings.com/nfl/team/atlanta-falcons/stats"
 
 # header needed to scrape wikipedia
 headers = {    
@@ -18,8 +19,8 @@ headers = {
 
 def scrape_falcons():
     try:
-        # Fetch page
-        resp = requests.get(TARGET_URL, timeout=15, headers=headers)
+        # Fetch page for record, standings info
+        resp = requests.get(TARGET_URL_1, timeout=15, headers=headers)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
@@ -66,6 +67,14 @@ def scrape_falcons():
                 next_team_in_wins = cells[3].get_text(strip=True)
                 next_team_in_losses = cells[4].get_text(strip=True)
                 wins_away = ((int(next_team_in_wins) - int(wins)) + (int(losses) - int(next_team_in_losses))) * 0.5
+
+        # Fetch page for team stats
+        # resp = requests.get(TARGET_URL_2, timeout=15, headers=headers)
+        # resp.raise_for_status()
+        # soup = BeautifulSoup(resp.text, "html.parser")
+
+        # get table with team stats
+        # stats_table = soup.find("table", {"class"}: "")
 
                 
 
