@@ -47,6 +47,18 @@
     "ranking": "No. 16",
     "conf_record": "6–1",
     "conf_standings": 1,
-    "season_ongoing": "YES"
+    "season_status": "Regular Season",
+    "ppg": "33.4",
+    "opp_ppg": "25.6",
+    "ppg_rank": "#21",
+    "opp_ppg_rank": "#68",
+    "rpg": "224.8",
+    "opp_rpg": "171.4",
+    "rpg_rank": "#9",
+    "opp_rpg_rank": "#96",
+    "papg": "251.6",
+    "opp_papg": "247.0",
+    "papg_rank": "#39",
+    "opp_papg_rank": "#98"
   }
 }

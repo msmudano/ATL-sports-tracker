@@ -7,7 +7,8 @@ from datetime import datetime
 # Path to store scraped data
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 # URL to scrape
-TARGET_URL = "https://en.wikipedia.org/wiki/2025_Georgia_Tech_Yellow_Jackets_football_team"
+TARGET_URL_1 = "https://en.wikipedia.org/wiki/2025_Georgia_Tech_Yellow_Jackets_football_team"
+TARGET_URL_2 = "https://www.teamrankings.com/college-football/team/georgia-tech-yellow-jackets/stats"
 
 # header needed to scrape wikipedia
 headers = {    
@@ -19,7 +20,7 @@ headers = {
 def scrape_gt():
     try:
         # Fetch page
-        resp = requests.get(TARGET_URL, timeout=15, headers=headers)
+        resp = requests.get(TARGET_URL_1, timeout=15, headers=headers)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
@@ -28,6 +29,7 @@ def scrape_gt():
         if not record_table:
             print("Error: Could not find the Georgia Tech record or standings on this page.")
         
+        # get CFP ranking, record, wins, losses, conference record
         for row in record_table.find_all("tr"):
             row_header = row.find("th")
             row_value = row.find("td")
@@ -54,6 +56,7 @@ def scrape_gt():
         if not standings_table:
             print("Error: Could not find the Georgia Tech record or standings on this page.")
 
+        # get conference standings
         standings = 0
         for row in standings_table.find_all("tr"):
             if row.find("td") == None:
@@ -63,16 +66,77 @@ def scrape_gt():
             row_value = row.find("td").find("a")
             if (row_value.get_text(strip=True) == "Georgia Tech"):
                 break
+
+        # Fetch page for team stats
+        resp = requests.get(TARGET_URL_2, timeout=15, headers=headers)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        # get tables with team stats
+        stats_tables = soup.find_all("table", {"class": "tr-table scrollable"})
+        overall_stats_table = stats_tables[0]
+        rushing_stats_table = stats_tables[1]
+        passing_stats_table = stats_tables[2]
+
+        # get points/game, opponent points/game
+        for row in overall_stats_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 4):
+                continue
+
+            if cells[0].get_text(strip=True) == "Points/Game":
+                ppg = cells[1].get_text(strip=True).split("(")[0]
+                ppg_rank = cells[1].get_text(strip=True).split("(")[1][:-1]
+
+            if cells[2].get_text(strip=True) == "Opp Points/Game":
+                opp_ppg = cells[3].get_text(strip=True).split("(")[0]
+                opp_ppg_rank = cells[3].get_text(strip=True).split("(")[1][:-1]
+
+        # get rush yds/game, oppoenent rush yds/game
+        for row in rushing_stats_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 4):
+                continue
+
+            if cells[0].get_text(strip=True) == "Rush Yards/Game":
+                rpg = cells[1].get_text(strip=True).split("(")[0]
+                rpg_rank = cells[1].get_text(strip=True).split("(")[1][:-1]
+
+            if cells[2].get_text(strip=True) == "Opp Rush Yards/Game":
+                opp_rpg = cells[3].get_text(strip=True).split("(")[0]
+                opp_rpg_rank = cells[3].get_text(strip=True).split("(")[1][:-1]
+
+        # get pass yds/game, opponent pass yds/game
+        for row in passing_stats_table.find_all("tr"):
+            cells = row.find_all(["td"])
+
+            if (len(cells) < 4):
+                continue
+
+            if cells[0].get_text(strip=True) == "Pass Yards/Game":
+                papg = cells[1].get_text(strip=True).split("(")[0]
+                papg_rank = cells[1].get_text(strip=True).split("(")[1][:-1]
+
+            if cells[2].get_text(strip=True) == "Opp Pass Yards/Game":
+                opp_papg = cells[3].get_text(strip=True).split("(")[0]
+                opp_papg_rank = cells[3].get_text(strip=True).split("(")[1][:-1]
             
 
         # set season_ongoing field
         today = datetime.today().date()
-        gt_end_date_str = "2026-01-19"
-        gt_end_date = datetime.strptime(gt_end_date_str, "%Y-%m-%d").date()
-        if (today <= gt_end_date):
-            season_ongoing = "YES"
+        gt_playoff_str = "2026-11-29"
+        gt_playoff_date = datetime.strptime(gt_playoff_str, "%Y-%m-%d").date()
+        gt_season_str = "2026-01-19"
+        gt_season_date = datetime.strptime(gt_season_str, "%Y-%m-%d").date()
+
+        if (today <= gt_playoff_date):
+            season_status = "Regular Season"
+        elif (today <= gt_season_date):
+            season_status = "12 Team Playoff / Bowl Season"
         else:
-            season_ongoing = "NO"
+            season_status = "Season is Over"
 
         gt_data = {
             "team": "Georgia Tech Yellow Jackets",
@@ -82,7 +146,19 @@ def scrape_gt():
             "ranking": ranking,
             "conf_record": conf_record_text,
             "conf_standings": standings,
-            "season_ongoing": season_ongoing
+            "season_status": season_status,
+            "ppg": ppg,
+            "opp_ppg": opp_ppg,
+            "ppg_rank": ppg_rank,
+            "opp_ppg_rank": opp_ppg_rank,
+            "rpg": rpg,
+            "opp_rpg": opp_rpg,
+            "rpg_rank": rpg_rank,
+            "opp_rpg_rank": opp_rpg_rank,
+            "papg": papg,
+            "opp_papg": opp_papg,
+            "papg_rank": papg_rank,
+            "opp_papg_rank": opp_papg_rank
         }
 
         # Load existing JSON if available

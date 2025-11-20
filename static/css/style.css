@@ -4,8 +4,13 @@ body {
 }
 
 .falcons-body {
-    font-family: Copperplate, Times; 
+    font-family: Copperplate, Times;
     background-color: #a71930;
+}
+
+.gt-body {
+    font-family: Copperplate, Times; 
+    background-color: #b3a369;
 }
 
 header h1 { 
@@ -120,6 +125,18 @@ ul {
     text-align: center;
 }
 
+.team-column-gt {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #000000;
+    padding: 20px;
+    width: 600px;
+    background: #003057;
+    align-items: right;
+    text-align: center;
+    color: white;
+}
+
 .home-button {
     display: inline-block;
     padding: 10px 18px;
@@ -137,10 +154,9 @@ ul {
 }
 
 strong {
-  font-weight: 1200;      /* heavy bold */
+  font-weight: 1200;
   font-size: 25px;
 }
-
 
 .footer {
     text-align: center;

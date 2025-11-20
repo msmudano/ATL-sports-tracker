@@ -5,31 +5,55 @@
   <title>Football</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
-  <header>
-    <h1>Georgia Tech Yellow Jackets Football</h1>
-  </header>
+<body class="gt-body">
+  <div class="team-header">
+    <p>Georgia Tech Yellow Jackets Football</p>
+  </div>
 
   <div class="teams-container">
-    <div class="team-column">
-      <h3>
-        {{ gt_data.team }}
-      </h3>
-      <img src="{{ url_for('static', filename='GeorgiaTech_logo.png') }}" 
-      alt="Georgia Tech Logo"
-      style="width:150px;height:100px;">
+    <div class="team-column-gt">
+      <img src="{{ url_for('static', filename='gt_gif.gif') }}" alt="GT GIF">
+      <br>
+      <img src="{{ url_for('static', filename='gt_gif_2.gif') }}" alt="GT GIF 2">
+    </div>
+
+    <div class="team-column-gt">
       <p>
-        Season Ongoing: <strong> {{ gt_data.season_ongoing }} </strong>
+        <u><strong>2025-26 SEASON</strong></u>
         <br>
-        Current Record: {{ gt_data.wins }} – {{ gt_data.losses }}
+        College Football Season Status: <strong> {{ gt_data.season_status }} </strong>
         <br>
-        Current Ranking: {{ gt_data.ranking }} in College Football Playoff Rankings
         <br>
-        Current Conference Record: {{ gt_data.conf_record }}
+        With <strong>{{ gt_data.wins }} wins</strong> and <strong>{{ gt_data.losses }} losses</strong>, 
+        the Yellow Jackets are sitting at ranking <strong>{{ gt_data.division_ranking }} place</strong> nationally in the CFP rankings.
+        Additionally, a conference record of {{ gt_data.conf_record }} gives the Jackets a No. {{  gt_data.conf_standings }} standing in the Atlanta Coast Conference. 
         <br>
-        Current Conference Standings: No. {{ gt_data.conf_standings }} in Atlantic Coastal Conference
+        <br>
+        <br>
+        <br>
+
+        <u>Season Stats</u>
+        <br>
+        Offensively, the Jackets are scoring <strong>{{ gt_data.ppg }} points</strong> per game, which is <strong>{{ gt_data.ppg_rank }}</strong> in the league.
+        They average <strong>{{ gt_data.papg }} passing yards</strong> per game, which is <strong>{{ gt_data.papg_rank }}</strong> in the league, and
+        they average <strong>{{ gt_data.rpg }} rushing yards</strong> per game, which is <strong>{{ gt_data.rpg_rank }}</strong> in the league.
+        <br>
+        <br>
+        <br>
+        Defensively, the Jackets are giving up <strong>{{ gt_data.opp_ppg }} points</strong> per game, which is <strong>{{ gt_data.opp_ppg_rank }}</strong> in the league.
+        Their opponents average <strong>{{ gt_data.opp_papg }} passing yards</strong> per game, which is <strong>{{ gt_data.opp_papg_rank }}</strong> in the league, and
+        their opponents average <strong>{{ gt_data.opp_rpg }} rushing yards</strong> per game, which is <strong>{{ gt_data.opp_rpg_rank }}</strong> in the league.
+        <br>
+        <br>
+        <br>
+        <br>
+        <small>Note: There are 136 Division 1 College Football teams included in the stat rankings</small>
       </p>
     </div>
+  </div>
+
+  <div class="teams-container">
+    <a href="/" class="home-button">Home Page</a>
   </div>
 
   <script src="/static/js/main.js"></script>
