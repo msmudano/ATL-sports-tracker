@@ -45,11 +45,11 @@ def hawks():
     hawks_data = data.get("hawks", {})
     return render_template("hawks.html", hawks_data=hawks_data)
 
-@app.route("/braves")
+@app.route("/gt_bb")
 def braves():
     data = load_data()
-    braves_data = data.get("braves", {})
-    return render_template("braves.html", braves_data=braves_data)
+    gt_bb_data = data.get("gt_bb", {})
+    return render_template("gt_bb.html", gt_bb_data=gt_bb_data)
 
 @app.route("/api/data")
 def api_data():

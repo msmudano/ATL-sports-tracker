@@ -48,7 +48,7 @@
     "season_ongoing": "NO"
   },
   "gt": {
-    "team": "Georgia Tech Yellow Jackets",
+    "team": "Georgia Tech Yellow Jackets (Football)",
     "wins": 9,
     "losses": 1,
     "record_text": "9–1",
@@ -68,5 +68,22 @@
     "opp_papg": "247.0",
     "papg_rank": "#39",
     "opp_papg_rank": "#98"
+  },
+  "gt_bb": {
+    "team": "Georgia Tech Yellow Jackets (Basketball)",
+    "wins": 4,
+    "losses": 1,
+    "record_text": "4–1",
+    "conf_record": "0–0",
+    "conf_standings": 12,
+    "season_status": "Regular Season",
+    "ppg": "71.0",
+    "opp_ppg": "63.0",
+    "ppg_rank": "#231",
+    "opp_ppg_rank": "#25",
+    "sppg": "41.3%",
+    "opp_sppg": "33.9%",
+    "sppg_rank": "#253",
+    "opp_sppg_rank": "#4"
   }
 }
