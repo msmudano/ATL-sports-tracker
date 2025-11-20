@@ -13,17 +13,17 @@ This site uses multiple python scripts that incorporate the BeautifulSoup librar
 The web scraping scripts are run twice a day via a GitHub Workflow.
 
 ## Features in Detail
-# Web Scraping
+### Web Scraping
 - Use of requests, BeautifulSoup libraries to scrape data from teamrankings.com and WikiPedia for each of the teams
 - Extracts team record, team standings, team statistics, and team statisitic rankings for each of the teams
 - Automatically updates and maintains all data in a data.json file
 
-# Flask Backend
+### Flask Backend
 - Handles routes to each of the subpages (/falcons, /hawks, etc)
 - Robust load_data() function that supports error handling if JSON content is missing or inproper
 - Includes API endpoint route (/api/data), which returns the full JSON dataset
 
-# Simple, but theme-aligned Front-End UI
+### Simple, but theme-aligned Front-End UI
 - Leverages HTML/CSS in order to present data in a readable format as well as incorporating color schemes and design choices to evoke a "sports" theme
 - Includes page navigation buttons with interactive hover animations
 
