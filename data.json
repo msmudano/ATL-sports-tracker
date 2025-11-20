@@ -29,7 +29,15 @@
     "standings_text": "Division: 1st (Southeast)Conference: 3rd (Eastern)",
     "conf_standings": "3rd",
     "division_standings": "1st",
-    "season_ongoing": "YES"
+    "season_status": "Regular Season",
+    "ppg": "117.2",
+    "opp_ppg": "114.4",
+    "ppg_rank": "#18",
+    "opp_ppg_rank": "#11",
+    "sppg": "48.6%",
+    "opp_sppg": "45.9%",
+    "sppg_rank": "#8",
+    "opp_sppg_rank": "#10"
   },
   "braves": {
     "team": "Atlanta Braves",

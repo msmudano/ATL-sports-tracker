@@ -2,34 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Basketball</title>
+  <title>Atlanta Hawks</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
-  <header>
-    <h1>Atlanta Hawks</h1>
-  </header>
 
-  <section id="content">
-    <ul>
-      <br>
-      <h3>
-        {{ hawks_data.team}}
-      </h3>
-      <img src="{{ url_for('static', filename='Atlanta_Hawks_logo.png') }}" 
-      alt="Atlanta Hawks Logo"
-      style="width:100px;height:100px;">
+<body class="hawks-body">
+  <div class="team-header">
+    <p>Atlanta Hawks</p>
+  </div>
+
+  <div class="teams-container">
+    <div class="team-column-hawks">
+      <img src="{{ url_for('static', filename='hawks_gif.gif') }}" alt="Hawks GIF">
+    </div>
+
+    <div class="team-column-hawks">
       <p>
-        Season Ongoing: <strong> {{ hawks_data.season_ongoing }} </strong>
+        <u><strong>2025-26 SEASON</strong></u>
         <br>
-        Current Record: {{ hawks_data.wins }} – {{ hawks_data.losses }}
+        NBA Season Status: <strong> {{ hawks_data.season_status }}</strong>
         <br>
-        Current Conference Standings: {{ hawks_data.conf_standings }} in East
         <br>
-        Current Division Standings: {{ hawks_data.division_standings }} in Southeast
+        With <strong>{{ hawks_data.wins }} wins</strong> and <strong>{{ hawks_data.losses }} losses</strong>, 
+        the Hawks are sitting at <strong>{{ hawks_data.conf_standings }} place</strong> in the Eastern Conference.
+        Additionally, the Hawks record of <strong>{{ hawks_data.record_text }}</strong> makes them <strong>{{ hawks_data.division_standings }} place</strong>
+        in the Southeast Division.
+        <br>
+        <br>
+        <small>Note: Divisions are comprised of 5 teams. Divisions have no impact on entrace to the playoffs</small>
+        <br>
+        <br>
+        <br>
+        Offensively, the Hawks are scoring <strong>{{ hawks_data.ppg }} points</strong> per game, 
+        which is <strong>{{ hawks_data.ppg_rank }}</strong> in the league.
+        They are also shooting <strong>{{ hawks_data.sppg }}</strong> for all field goals, 
+        which is <strong>{{ hawks_data.sppg_rank }}</strong> in the league.
+        <br>
+        <br>
+        <br>
+        Defensively, the Hawks are giving up <strong>{{ hawks_data.opp_ppg }} points</strong> per game,
+        which is <strong>{{ hawks_data.opp_ppg_rank }}</strong> in the league.
+        Their opponents are shooting <strong>{{ hawks_data.opp_sppg }}</strong> for all field goals, 
+        which is <strong>{{ hawks_data.opp_sppg_rank }}</strong> in the league.
       </p>
-    </ul>
-  </section>
+    </div>
+  </div>
+
+  <div class="teams-container">
+    <a href="/" class="home-button">Home Page</a>
+  </div>
 
   <script src="/static/js/main.js"></script>
 </body>
