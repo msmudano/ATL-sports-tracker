@@ -135,7 +135,8 @@ def scrape_gt_bb():
             "sppg": sppg,
             "opp_sppg": opp_sppg,
             "sppg_rank": sppg_rank,
-            "opp_sppg_rank": opp_sppg_rank
+            "opp_sppg_rank": opp_sppg_rank,
+            "ranking": "[unranked]"
         }
 
         # Load existing JSON if available

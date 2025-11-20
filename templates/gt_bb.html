@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Georgia Tech Football</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="gt-body">
+  <div class="team-header">
+    <p>{{ gt_bb_data.team }}</p>
+  </div>
+
+  <div class="teams-container">
+    <div class="team-column-gt">
+      <img src="{{ url_for('static', filename='gt_bb_gif.gif') }}" alt="GT GIF">
+    </div>
+
+    <div class="team-column-gt">
+      <p>
+        <u><strong>2025-26 SEASON</strong></u>
+        <br>
+        College Basketball Season Status: <strong> {{ gt_bb_data.season_status }} </strong>
+        <br>
+        <br>
+        With <strong>{{ gt_bb_data.wins }} wins</strong> and <strong>{{ gt_bb_data.losses }} losses</strong>, 
+        the Yellow Jackets are sitting at ranking <strong>{{ gt_bb_data.ranking }} place</strong> nationally.
+        Additionally, a conference record of {{ gt_bb_data.conf_record }} gives the Jackets a No. {{  gt_bb_data.conf_standings }} standing in the Atlanta Coast Conference. 
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <u>Season Stats</u>
+        <br>
+        Offensively, the Hawks are scoring <strong>{{ gt_bb_data.ppg }} points</strong> per game, 
+        which is <strong>{{ gt_bb_data.ppg_rank }}</strong> in the league.
+        They are also shooting <strong>{{ gt_bb_data.sppg }}</strong> for all field goals, 
+        which is <strong>{{ gt_bb_data.sppg_rank }}</strong> in the league.
+        <br>
+        <br>
+        <br>
+        Defensively, the Hawks are giving up <strong>{{ gt_bb_data.opp_ppg }} points</strong> per game,
+        which is ranked <strong>{{ gt_bb_data.opp_ppg_rank }}</strong> in the nation.
+        Their opponents are shooting <strong>{{ gt_bb_data.opp_sppg }}</strong> for all field goals, 
+        which is ranked <strong>{{ gt_bb_data.opp_sppg_rank }}</strong> in the nation.
+        <br>
+        <br>
+        <br>
+        <br>
+        <small>Note: There are 136 Division 1 College Football teams included in the stat rankings</small>
+      </p>
+    </div>
+  </div>
+
+  <div class="teams-container">
+    <a href="/" class="home-button">Home Page</a>
+  </div>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

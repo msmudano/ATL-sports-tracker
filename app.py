@@ -20,11 +20,9 @@ def index():
     data = load_data()
     falcons_data = data.get("falcons", {})
     hawks_data = data.get("hawks", {})
-    braves_data = data.get("braves", {})
     gt_data = data.get("gt", {})
     return render_template("index.html", falcons_data=falcons_data, 
                            hawks_data=hawks_data, 
-                           braves_data=braves_data, 
                            gt_data=gt_data)
 
 @app.route("/falcons")
@@ -33,7 +31,7 @@ def falcons():
     falcons_data = data.get("falcons", {})
     return render_template("falcons.html", falcons_data=falcons_data)
 
-@app.route("/gt")
+@app.route("/georgia_tech_fb")
 def gt():
     data = load_data()
     gt_data = data.get("gt", {})
@@ -45,8 +43,8 @@ def hawks():
     hawks_data = data.get("hawks", {})
     return render_template("hawks.html", hawks_data=hawks_data)
 
-@app.route("/gt_bb")
-def braves():
+@app.route("/georgia_tech_bb")
+def gt_bb():
     data = load_data()
     gt_bb_data = data.get("gt_bb", {})
     return render_template("gt_bb.html", gt_bb_data=gt_bb_data)

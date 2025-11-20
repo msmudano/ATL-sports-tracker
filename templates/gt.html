@@ -8,7 +8,7 @@
 
 <body class="gt-body">
   <div class="team-header">
-    <p>Georgia Tech Yellow Jackets Football</p>
+    <p>{{ gt_data.team }}</p>
   </div>
 
   <div class="teams-container">
@@ -26,7 +26,7 @@
         <br>
         <br>
         With <strong>{{ gt_data.wins }} wins</strong> and <strong>{{ gt_data.losses }} losses</strong>, 
-        the Yellow Jackets are sitting at ranking <strong>{{ gt_data.division_ranking }} place</strong> nationally in the CFP rankings.
+        the Yellow Jackets are sitting at ranking <strong>{{ gt_data.ranking }} place</strong> nationally in the CFP rankings.
         Additionally, a conference record of {{ gt_data.conf_record }} gives the Jackets a No. {{  gt_data.conf_standings }} standing in the Atlanta Coast Conference. 
         <br>
         <br>
