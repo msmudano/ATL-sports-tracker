@@ -28,26 +28,37 @@ The web scraping scripts are run twice a day via a GitHub Workflow.
 - Includes page navigation buttons with interactive hover animations
 
 ## Accessing the site
-# Option 1: Access via Render
+### Option 1: Access via Render
 The site is hosted on Render at the link below. Please note this web app is running on the free version of Render, so it may take roughly 1 minute to load
 <https://atl-sports-tracker.onrender.com>  
 
-# Option 2: Run Locally
+### Option 2: Run Locally
+Run these commands in your terminal: 
 1. Clone repository
-```git clone https://github.com/YOUR_USERNAME/atl-sports-tracker.git```
-```cd atl-sports-tracker```
+```shell
+    git clone https://github.com/YOUR_USERNAME/atl-sports-tracker.git
+    d atl-sports-tracker
+```
 2. Set up virtual environment
-```python3 -m venv venv```
-```source venv/bin/activate   # if on macOS/Linux```
-```venv\Scripts\activate      # if on Windows ```
+```shell
+    python3 -m venv venv
+    source venv/bin/activate   # if on macOS/Linux
+    venv\Scripts\activate      # if on Windows
+```
 3. Install dependencies
-```pip install -r requirements.txt```
+```shell
+    pip install -r requirements.txt
+```
 4. Run all scrapers
-```python scrapers/scraper_falcons.py```
-```python scrapers/scraper_hawks.py```
-```python scrapers/scraper_gt.py```
-```python scrapers/scraper_gt_bb.py```
+```shell
+    python scrapers/scraper_falcons.py
+    python scrapers/scraper_hawks.py
+    python scrapers/scraper_gt.py
+    python scrapers/scraper_gt_bb.py
+```
 5. Run local server
-```python app.py```
+```shell
+    python app.py
+```
 6. Access site
 <http://127.0.0.1:5000>
