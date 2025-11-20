@@ -23,10 +23,12 @@
     <div class="team-grid">
       <a href="/falcons" class="team-card">
         <img src="{{ url_for('static', filename='Atlanta_Falcons_logo.png') }}" alt="Atlanta Falcons Logo">
+        <p>Currently in: {{ falcons_data.season_status }}</p>
       </a>
 
       <a href="/georgia_tech_fb" class="team-card">
         <img src="{{ url_for('static', filename='gt_football_logo.png') }}" alt="GT FB Logo">
+        <p>Currently in: {{ gt_data.season_status }}</p>
       </a>
 
 
@@ -34,10 +36,12 @@
         <div class="team-grid">
       <a href="/hawks" class="team-card">
         <img src="{{ url_for('static', filename='Atlanta_Hawks_logo.png') }}" alt="Atlanta Hawks Logo">
+        <p>Currently in: {{ hawks_data.season_status }}</p>
       </a>
 
       <a href="/georgia_tech_bb" class="team-card">
         <img src="{{ url_for('static', filename='gt_basketball_logo.png') }}" alt="GT BB Logo">
+        <p>Currently in: {{ gt_bb_data.season_status }}</p>
       </a>
     </div>
   </main>

@@ -21,9 +21,12 @@ def index():
     falcons_data = data.get("falcons", {})
     hawks_data = data.get("hawks", {})
     gt_data = data.get("gt", {})
-    return render_template("index.html", falcons_data=falcons_data, 
+    gt_bb_data = data.get("gt_bb", {})
+    return render_template("index.html", 
+                           falcons_data=falcons_data, 
                            hawks_data=hawks_data, 
-                           gt_data=gt_data)
+                           gt_data=gt_data,
+                           gt_bb_data=gt_bb_data)
 
 @app.route("/falcons")
 def falcons():
