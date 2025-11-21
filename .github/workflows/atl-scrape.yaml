@@ -2,7 +2,7 @@ name: Scrape Atlanta Sports Info
 
 on:
   schedule:
-    - cron: '0 9,21 * * *'  # runs daily at 4am EST, 4pm EST
+    - cron: '0 11,23 * * *'  # runs daily at 6am EST, 6pm EST
   workflow_dispatch:
 
 permissions:
@@ -31,21 +31,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r ./requirements.txt
 
-      # Run Falcons scraper
+      # Run Scrapers
       - name: Run Falcons scraper
         run: python scraper_falcons.py
-
-      # Run Hawks scraper
       - name: Run Hawks scraper
         run: python scraper_hawks.py
-
-      # Run Braves scraper
-      - name: Run Braves scraper
-        run: python scraper_hawks.py
-
-      # Run GT scraper
-      - name: Run GT scraper
+      - name: Run GT Football scraper
         run: python scraper_gt.py
+      - name: Run GT Basketball scraper
+        run: python scraper_gt_bb.py
 
       # Commit & push updated data.json if changed
       - name: Commit & push updated data.json
