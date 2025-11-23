@@ -63,17 +63,17 @@
     "rpg": "214.4",
     "opp_rpg": "172.9",
     "rpg_rank": "#13",
-    "opp_rpg_rank": "#95",
+    "opp_rpg_rank": "#94",
     "papg": "252.1",
     "opp_papg": "244.9",
-    "papg_rank": "#37",
-    "opp_papg_rank": "#101"
+    "papg_rank": "#38",
+    "opp_papg_rank": "#100"
   },
   "gt_bb": {
     "team": "Georgia Tech Yellow Jackets (Basketball)",
-    "wins": 4,
+    "wins": 5,
     "losses": 1,
-    "record_text": "4–1",
+    "record_text": "5–1",
     "conf_record": "0–0",
     "conf_standings": 12,
     "season_status": "Regular Season",
