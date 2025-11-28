@@ -11,7 +11,7 @@
     "ppg": "19.9",
     "opp_ppg": "22.6",
     "ppg_rank": "#26",
-    "opp_ppg_rank": "#15",
+    "opp_ppg_rank": "#14",
     "rpg": "120.0",
     "opp_rpg": "133.1",
     "rpg_rank": "#13",
@@ -67,7 +67,7 @@
     "papg": "252.1",
     "opp_papg": "244.9",
     "papg_rank": "#38",
-    "opp_papg_rank": "#100"
+    "opp_papg_rank": "#101"
   },
   "gt_bb": {
     "team": "Georgia Tech Yellow Jackets (Basketball)",
@@ -80,11 +80,11 @@
     "ppg": "72.8",
     "opp_ppg": "63.5",
     "ppg_rank": "#214",
-    "opp_ppg_rank": "#18",
+    "opp_ppg_rank": "#17",
     "sppg": "43.4%",
     "opp_sppg": "34.8%",
-    "sppg_rank": "#207",
-    "opp_sppg_rank": "#4",
+    "sppg_rank": "#206",
+    "opp_sppg_rank": "#3",
     "ranking": "[unranked]"
   }
 }
