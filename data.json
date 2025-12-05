@@ -11,7 +11,7 @@
     "ppg": "20.3",
     "opp_ppg": "23.0",
     "ppg_rank": "#26",
-    "opp_ppg_rank": "#17",
+    "opp_ppg_rank": "#16",
     "rpg": "123.9",
     "opp_rpg": "131.2",
     "rpg_rank": "#9",
@@ -37,7 +37,7 @@
     "sppg": "48.1%",
     "opp_sppg": "46.4%",
     "sppg_rank": "#10",
-    "opp_sppg_rank": "#11"
+    "opp_sppg_rank": "#12"
   },
   "braves": {
     "team": "Atlanta Braves",
@@ -83,7 +83,7 @@
     "opp_ppg_rank": "#79",
     "sppg": "41.9%",
     "opp_sppg": "39.6%",
-    "sppg_rank": "#260",
+    "sppg_rank": "#259",
     "opp_sppg_rank": "#40",
     "ranking": "[unranked]"
   }
