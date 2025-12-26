@@ -10,7 +10,7 @@
     "wins_away": 3.5,
     "ppg": "20.5",
     "opp_ppg": "24.0",
-    "ppg_rank": "#25",
+    "ppg_rank": "#26",
     "opp_ppg_rank": "#21",
     "rpg": "124.7",
     "opp_rpg": "128.2",
@@ -19,7 +19,7 @@
     "papg": "215.9",
     "opp_papg": "195.1",
     "papg_rank": "#17",
-    "opp_papg_rank": "#8"
+    "opp_papg_rank": "#9"
   },
   "hawks": {
     "team": "Atlanta Hawks",
@@ -32,7 +32,7 @@
     "season_status": "Regular Season",
     "ppg": "118.8",
     "opp_ppg": "119.6",
-    "ppg_rank": "#11",
+    "ppg_rank": "#12",
     "opp_ppg_rank": "#24",
     "sppg": "48.3%",
     "opp_sppg": "47.9%",
