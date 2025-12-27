@@ -24,18 +24,18 @@
   "hawks": {
     "team": "Atlanta Hawks",
     "wins": "15",
-    "losses": "16",
-    "record_text": "15–16 (.484)",
+    "losses": "17",
+    "record_text": "15–17 (.469)",
     "standings_text": "Division: 2nd (Southeast)Conference: 7th (Eastern)",
     "conf_standings": "7th",
     "division_standings": "2nd",
     "season_status": "Regular Season",
-    "ppg": "118.8",
-    "opp_ppg": "119.6",
+    "ppg": "118.6",
+    "opp_ppg": "119.8",
     "ppg_rank": "#12",
     "opp_ppg_rank": "#24",
     "sppg": "48.3%",
-    "opp_sppg": "47.9%",
+    "opp_sppg": "47.8%",
     "sppg_rank": "#7",
     "opp_sppg_rank": "#23"
   },
@@ -66,8 +66,8 @@
     "opp_rpg_rank": "#94",
     "papg": "245.6",
     "opp_papg": "229.0",
-    "papg_rank": "#45",
-    "opp_papg_rank": "#76"
+    "papg_rank": "#46",
+    "opp_papg_rank": "#78"
   },
   "gt_bb": {
     "team": "Georgia Tech Yellow Jackets (Basketball)",
