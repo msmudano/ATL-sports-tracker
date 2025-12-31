@@ -32,11 +32,11 @@
     "season_status": "Regular Season",
     "ppg": "119.1",
     "opp_ppg": "120.6",
-    "ppg_rank": "#10",
+    "ppg_rank": "#11",
     "opp_ppg_rank": "#25",
     "sppg": "48.2%",
     "opp_sppg": "47.9%",
-    "sppg_rank": "#6",
+    "sppg_rank": "#7",
     "opp_sppg_rank": "#23"
   },
   "braves": {
@@ -79,12 +79,12 @@
     "season_status": "Regular Season",
     "ppg": "76.5",
     "opp_ppg": "70.3",
-    "ppg_rank": "#145",
-    "opp_ppg_rank": "#77",
+    "ppg_rank": "#144",
+    "opp_ppg_rank": "#76",
     "sppg": "45.4%",
     "opp_sppg": "39.5%",
-    "sppg_rank": "#142",
-    "opp_sppg_rank": "#30",
+    "sppg_rank": "#140",
+    "opp_sppg_rank": "#29",
     "ranking": "[unranked]"
   }
 }
