@@ -23,21 +23,21 @@
   },
   "hawks": {
     "team": "Atlanta Hawks",
-    "wins": "16",
+    "wins": "17",
     "losses": "19",
-    "record_text": "16–19 (.457)",
+    "record_text": "17–19 (.472)",
     "standings_text": "Division: 3rd (Southeast)Conference: 10th (Eastern)",
     "conf_standings": "10t",
     "division_standings": "3rd",
     "season_status": "Regular Season",
-    "ppg": "119.3",
-    "opp_ppg": "120.1",
+    "ppg": "119.0",
+    "opp_ppg": "119.5",
     "ppg_rank": "#9",
     "opp_ppg_rank": "#24",
-    "sppg": "48.3%",
-    "opp_sppg": "47.8%",
+    "sppg": "48.2%",
+    "opp_sppg": "47.5%",
     "sppg_rank": "#6",
-    "opp_sppg_rank": "#23"
+    "opp_sppg_rank": "#20"
   },
   "braves": {
     "team": "Atlanta Braves",
@@ -62,12 +62,12 @@
     "opp_ppg_rank": "#67",
     "rpg": "195.3",
     "opp_rpg": "168.3",
-    "rpg_rank": "#23",
+    "rpg_rank": "#22",
     "opp_rpg_rank": "#87",
     "papg": "247.7",
     "opp_papg": "237.0",
     "papg_rank": "#43",
-    "opp_papg_rank": "#91"
+    "opp_papg_rank": "#94"
   },
   "gt_bb": {
     "team": "Georgia Tech Yellow Jackets (Basketball)",
@@ -79,12 +79,12 @@
     "season_status": "Regular Season",
     "ppg": "76.7",
     "opp_ppg": "71.4",
-    "ppg_rank": "#140",
-    "opp_ppg_rank": "#103",
+    "ppg_rank": "#141",
+    "opp_ppg_rank": "#102",
     "sppg": "46.0%",
     "opp_sppg": "39.6%",
-    "sppg_rank": "#117",
-    "opp_sppg_rank": "#31",
+    "sppg_rank": "#116",
+    "opp_sppg_rank": "#29",
     "ranking": "[unranked]"
   }
 }
