@@ -77,14 +77,14 @@
     "conf_record": "1–1",
     "conf_standings": 11,
     "season_status": "Regular Season",
-    "ppg": "75.9",
-    "opp_ppg": "70.1",
-    "ppg_rank": "#155",
-    "opp_ppg_rank": "#74",
-    "sppg": "45.6%",
-    "opp_sppg": "38.7%",
-    "sppg_rank": "#131",
-    "opp_sppg_rank": "#15",
+    "ppg": "75.7",
+    "opp_ppg": "70.9",
+    "ppg_rank": "#158",
+    "opp_ppg_rank": "#90",
+    "sppg": "45.2%",
+    "opp_sppg": "38.9%",
+    "sppg_rank": "#151",
+    "opp_sppg_rank": "#20",
     "ranking": "[unranked]"
   }
 }
