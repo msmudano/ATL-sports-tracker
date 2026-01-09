@@ -66,7 +66,7 @@
     "opp_rpg_rank": "#87",
     "papg": "247.7",
     "opp_papg": "237.0",
-    "papg_rank": "#43",
+    "papg_rank": "#44",
     "opp_papg_rank": "#94"
   },
   "gt_bb": {
@@ -79,12 +79,12 @@
     "season_status": "Regular Season",
     "ppg": "75.7",
     "opp_ppg": "70.9",
-    "ppg_rank": "#155",
-    "opp_ppg_rank": "#89",
+    "ppg_rank": "#158",
+    "opp_ppg_rank": "#91",
     "sppg": "45.2%",
     "opp_sppg": "38.9%",
     "sppg_rank": "#150",
-    "opp_sppg_rank": "#18",
+    "opp_sppg_rank": "#15",
     "ranking": "[unranked]"
   }
 }
