@@ -6,7 +6,7 @@
     "record_text": "8–9",
     "division_standing": "3rd",
     "conf_standing": "11",
-    "season_status": "Regular Season",
+    "season_status": "Playoffs",
     "wins_away": 1.5,
     "ppg": "20.8",
     "opp_ppg": "23.6",
@@ -19,7 +19,7 @@
     "papg": "207.2",
     "opp_papg": "200.4",
     "papg_rank": "#19",
-    "opp_papg_rank": "#13"
+    "opp_papg_rank": "#12"
   },
   "hawks": {
     "team": "Atlanta Hawks",
@@ -32,7 +32,7 @@
     "season_status": "Regular Season",
     "ppg": "118.2",
     "opp_ppg": "118.6",
-    "ppg_rank": "#11",
+    "ppg_rank": "#10",
     "opp_ppg_rank": "#23",
     "sppg": "47.9%",
     "opp_sppg": "47.6%",
@@ -77,14 +77,14 @@
     "conf_record": "1–2",
     "conf_standings": 15,
     "season_status": "Regular Season",
-    "ppg": "75.7",
-    "opp_ppg": "70.9",
-    "ppg_rank": "#158",
-    "opp_ppg_rank": "#92",
+    "ppg": "76.0",
+    "opp_ppg": "72.1",
+    "ppg_rank": "#153",
+    "opp_ppg_rank": "#110",
     "sppg": "45.2%",
-    "opp_sppg": "38.9%",
-    "sppg_rank": "#149",
-    "opp_sppg_rank": "#15",
+    "opp_sppg": "39.6%",
+    "sppg_rank": "#150",
+    "opp_sppg_rank": "#24",
     "ranking": "[unranked]"
   }
 }
