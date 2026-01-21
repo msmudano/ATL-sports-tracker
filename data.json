@@ -32,7 +32,7 @@
     "season_status": "Regular Season",
     "ppg": "117.5",
     "opp_ppg": "119.0",
-    "ppg_rank": "#9",
+    "ppg_rank": "#10",
     "opp_ppg_rank": "#25",
     "sppg": "47.4%",
     "opp_sppg": "47.8%",
@@ -79,11 +79,11 @@
     "season_status": "Regular Season",
     "ppg": "75.6",
     "opp_ppg": "73.1",
-    "ppg_rank": "#162",
-    "opp_ppg_rank": "#125",
+    "ppg_rank": "#160",
+    "opp_ppg_rank": "#127",
     "sppg": "45.2%",
     "opp_sppg": "40.2%",
-    "sppg_rank": "#150",
+    "sppg_rank": "#149",
     "opp_sppg_rank": "#25",
     "ranking": "[unranked]"
   }
