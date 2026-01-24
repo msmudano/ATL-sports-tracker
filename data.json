@@ -30,14 +30,14 @@
     "conf_standings": "10t",
     "division_standings": "3rd",
     "season_status": "Regular Season",
-    "ppg": "117.6",
-    "opp_ppg": "119.1",
+    "ppg": "117.4",
+    "opp_ppg": "118.7",
     "ppg_rank": "#10",
     "opp_ppg_rank": "#25",
-    "sppg": "47.3%",
-    "opp_sppg": "47.8%",
-    "sppg_rank": "#11",
-    "opp_sppg_rank": "#23"
+    "sppg": "47.5%",
+    "opp_sppg": "47.7%",
+    "sppg_rank": "#9",
+    "opp_sppg_rank": "#22"
   },
   "braves": {
     "team": "Atlanta Braves",
@@ -80,10 +80,10 @@
     "ppg": "75.6",
     "opp_ppg": "73.1",
     "ppg_rank": "#158",
-    "opp_ppg_rank": "#129",
+    "opp_ppg_rank": "#130",
     "sppg": "45.2%",
     "opp_sppg": "40.2%",
-    "sppg_rank": "#145",
+    "sppg_rank": "#144",
     "opp_sppg_rank": "#25",
     "ranking": "[unranked]"
   }
