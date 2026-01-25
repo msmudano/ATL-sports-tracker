@@ -37,7 +37,7 @@
     "sppg": "47.5%",
     "opp_sppg": "47.7%",
     "sppg_rank": "#9",
-    "opp_sppg_rank": "#22"
+    "opp_sppg_rank": "#23"
   },
   "braves": {
     "team": "Atlanta Braves",
@@ -72,19 +72,19 @@
   "gt_bb": {
     "team": "Georgia Tech Yellow Jackets (Basketball)",
     "wins": 11,
-    "losses": 8,
-    "record_text": "11–8",
-    "conf_record": "2–4",
+    "losses": 9,
+    "record_text": "11–9",
+    "conf_record": "2–5",
     "conf_standings": 13,
     "season_status": "Regular Season",
-    "ppg": "75.6",
-    "opp_ppg": "73.1",
-    "ppg_rank": "#158",
-    "opp_ppg_rank": "#130",
-    "sppg": "45.2%",
-    "opp_sppg": "40.2%",
-    "sppg_rank": "#144",
-    "opp_sppg_rank": "#25",
+    "ppg": "75.0",
+    "opp_ppg": "73.3",
+    "ppg_rank": "#180",
+    "opp_ppg_rank": "#140",
+    "sppg": "44.8%",
+    "opp_sppg": "40.5%",
+    "sppg_rank": "#165",
+    "opp_sppg_rank": "#26",
     "ranking": "[unranked]"
   }
 }
