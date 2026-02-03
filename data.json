@@ -26,8 +26,8 @@
     "wins": "24",
     "losses": "27",
     "record_text": "24–27 (.471)",
-    "standings_text": "Division: 3rd (Southeast)Conference: 9th (Eastern)",
-    "conf_standings": "9th",
+    "standings_text": "Division: 3rd (Southeast)Conference: 10th (Eastern)",
+    "conf_standings": "10t",
     "division_standings": "3rd",
     "season_status": "Regular Season",
     "ppg": "117.2",
@@ -79,12 +79,12 @@
     "season_status": "Regular Season",
     "ppg": "74.5",
     "opp_ppg": "74.0",
-    "ppg_rank": "#186",
+    "ppg_rank": "#189",
     "opp_ppg_rank": "#156",
     "sppg": "44.8%",
     "opp_sppg": "40.5%",
-    "sppg_rank": "#160",
-    "opp_sppg_rank": "#26",
+    "sppg_rank": "#159",
+    "opp_sppg_rank": "#27",
     "ranking": "[unranked]"
   }
 }
