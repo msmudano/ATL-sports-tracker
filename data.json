@@ -23,21 +23,21 @@
   },
   "hawks": {
     "team": "Atlanta Hawks",
-    "wins": "26",
+    "wins": "27",
     "losses": "30",
-    "record_text": "26–30 (.464)",
+    "record_text": "27–30 (.474)",
     "standings_text": "Division: 4th (Southeast)Conference: 10th (Eastern)",
     "conf_standings": "10t",
     "division_standings": "4th",
     "season_status": "Regular Season",
     "ppg": "117.3",
-    "opp_ppg": "118.6",
-    "ppg_rank": "#9",
-    "opp_ppg_rank": "#25",
-    "sppg": "47.2%",
-    "opp_sppg": "47.6%",
-    "sppg_rank": "#11",
-    "opp_sppg_rank": "#21"
+    "opp_ppg": "118.4",
+    "ppg_rank": "#10",
+    "opp_ppg_rank": "#24",
+    "sppg": "47.1%",
+    "opp_sppg": "47.5%",
+    "sppg_rank": "#13",
+    "opp_sppg_rank": "#20"
   },
   "braves": {
     "team": "Atlanta Braves",
@@ -79,12 +79,12 @@
     "season_status": "Regular Season",
     "ppg": "74.3",
     "opp_ppg": "77.0",
-    "ppg_rank": "#189",
-    "opp_ppg_rank": "#229",
+    "ppg_rank": "#188",
+    "opp_ppg_rank": "#232",
     "sppg": "44.4%",
     "opp_sppg": "42.1%",
-    "sppg_rank": "#186",
-    "opp_sppg_rank": "#57",
+    "sppg_rank": "#189",
+    "opp_sppg_rank": "#58",
     "ranking": "[unranked]"
   }
 }
