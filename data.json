@@ -72,18 +72,18 @@
   "gt_bb": {
     "team": "Georgia Tech Yellow Jackets (Basketball)",
     "wins": 11,
-    "losses": 16,
-    "record_text": "11–16",
-    "conf_record": "2–12",
+    "losses": 17,
+    "record_text": "11–17",
+    "conf_record": "2–13",
     "conf_standings": 18,
     "season_status": "Regular Season",
     "ppg": "74.1",
     "opp_ppg": "77.3",
-    "ppg_rank": "#195",
+    "ppg_rank": "#197",
     "opp_ppg_rank": "#248",
     "sppg": "44.5%",
     "opp_sppg": "42.4%",
-    "sppg_rank": "#194",
+    "sppg_rank": "#193",
     "opp_sppg_rank": "#66",
     "ranking": "[unranked]"
   }
