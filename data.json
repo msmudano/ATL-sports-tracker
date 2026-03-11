@@ -30,14 +30,14 @@
     "conf_standings": "9th",
     "division_standings": "3rd",
     "season_status": "Regular Season",
-    "ppg": "117.7",
-    "opp_ppg": "117.3",
+    "ppg": "117.8",
+    "opp_ppg": "117.2",
     "ppg_rank": "#7",
     "opp_ppg_rank": "#21",
-    "sppg": "47.2%",
+    "sppg": "47.3%",
     "opp_sppg": "47.3%",
     "sppg_rank": "#13",
-    "opp_sppg_rank": "#21"
+    "opp_sppg_rank": "#20"
   },
   "braves": {
     "team": "Atlanta Braves",
@@ -79,12 +79,12 @@
     "season_status": "Tournament (March Madness)",
     "ppg": "73.8",
     "opp_ppg": "77.4",
-    "ppg_rank": "#211",
-    "opp_ppg_rank": "#246",
+    "ppg_rank": "#210",
+    "opp_ppg_rank": "#245",
     "sppg": "44.2%",
     "opp_sppg": "42.6%",
-    "sppg_rank": "#209",
-    "opp_sppg_rank": "#68",
+    "sppg_rank": "#208",
+    "opp_sppg_rank": "#70",
     "ranking": "[unranked]"
   }
 }
