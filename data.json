@@ -24,20 +24,20 @@
   "hawks": {
     "team": "Atlanta Hawks",
     "wins": "46",
-    "losses": "35",
-    "record_text": "46–35 (.568)",
+    "losses": "36",
+    "record_text": "46–36 (.561)",
     "standings_text": "Division: 1st (Southeast)Conference: 5th (Eastern)",
     "conf_standings": "5th",
     "division_standings": "1st",
-    "season_status": "Regular Season",
+    "season_status": "Playoffs",
     "ppg": "118.5",
-    "opp_ppg": "115.7",
+    "opp_ppg": "116.0",
     "ppg_rank": "#6",
-    "opp_ppg_rank": "#17",
+    "opp_ppg_rank": "#18",
     "sppg": "47.4%",
-    "opp_sppg": "47.2%",
+    "opp_sppg": "47.4%",
     "sppg_rank": "#13",
-    "opp_sppg_rank": "#17"
+    "opp_sppg_rank": "#18"
   },
   "braves": {
     "team": "Atlanta Braves",
