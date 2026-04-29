@@ -30,14 +30,14 @@
     "conf_standings": "6th",
     "division_standings": "1st",
     "season_status": "Playoffs",
-    "ppg": "117.8",
-    "opp_ppg": "115.8",
-    "ppg_rank": "#6",
+    "ppg": "117.6",
+    "opp_ppg": "115.9",
+    "ppg_rank": "#8",
     "opp_ppg_rank": "#18",
     "sppg": "47.3%",
-    "opp_sppg": "47.3%",
+    "opp_sppg": "47.4%",
     "sppg_rank": "#13",
-    "opp_sppg_rank": "#18"
+    "opp_sppg_rank": "#19"
   },
   "braves": {
     "team": "Atlanta Braves",
